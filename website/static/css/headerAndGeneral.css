@@ -1,0 +1,583 @@
+/* general */
+@import url('https://fonts.cdnfonts.com/css/iransansx');
+:root{
+    --mainColor: #ffffffd5;
+    --secondaryColor: #ffffffc0;
+    --layer1: #ffffff0b;
+    --layer1Hover: #ffffff19;
+    --border: #ffffff30;
+    --borderHover: #ffffff60;
+    --secondaryFontSize: 14pt;
+    --thirdFontSize: 12pt;
+    --red: #ff0000c0;
+    --green: #00ff00a7;
+    --blue: #2090ffff;
+    --gold: #FFD300C0;
+    --purple: #a600f3d2;
+    --keyWidth: 300px;
+    --containersPadding: 17px;
+    --padding2: 10px;
+    --padding3: 3px;
+    --margin2: 20px;
+    --keyWidth1: calc(var(--keyWidth) - var(--containersPadding) - var(--padding2) - var(--padding3));
+    --keyWidth2: calc(var(--keyWidth) - var(--containersPadding) - var(--padding2) - var(--padding3) - var(--margin2));
+    --SBWidth: 600px;
+    --SBHeight: 43px;
+    --OSBHeight: 400px;
+    --OSBTop: calc(-1 * var(--OSBHeight) - 6px);
+    --transitions: background-color 0.1s ,border 0.1s ,color 0.1s;
+}
+*{
+    direction:rtl;
+    font-family: 'IRANSansX';
+    margin: 0;
+    padding: 0;
+    font-size: 16pt;
+    color: var(--mainColor);
+    font-weight: 400;
+    user-select: none;
+    white-space: nowrap;
+    -webkit-transition: var(--transitions);
+    -moz-transition: var(--transitions);
+    -o-transition: var(--transitions);
+    transition: var(--transitions);
+}
+a{
+    text-decoration: none;
+    color: var(--mainColor);
+}
+a:hover{
+    text-decoration: none;
+    
+}
+svg{
+    fill: var(--mainColor);
+}
+body{
+    background-color: #121212;
+}
+*::-webkit-scrollbar{
+    background-color: transparent;
+    width: 14px;
+}
+*::-webkit-scrollbar-track{
+    background-color: transparent;
+}
+*::-webkit-scrollbar-thumb{
+    background-color: var(--layer1);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+}
+*::-webkit-scrollbar-thumb:hover{
+    cursor:grab;
+}
+/* - general */
+/* + header */
+#header{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: #363636aa;
+    padding: 5px 5px;
+    position: fixed;
+    width: calc(100% - 10px);
+    height: 32px;
+    top: 0px;
+    left: 0px;
+    backdrop-filter: blur(10px);
+    z-index: 40;
+    border-bottom: 1px solid #ffffff50;
+    box-shadow: #363636aa 0px 2px 3px 1px;
+}
+/* + poickTitle */
+#poickTitle{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex: 1;
+    width: calc(var(--keyWidth) - 5px);
+}
+#poickLogo {
+    width: 36px;
+    height: 36px;
+    padding-left: 5px;
+}
+/* - poickTitle */
+/* + phoneHeader */
+.phoneIcon{
+    height: 36px;
+    display: none;
+}
+#phoneHeader{
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    display: none;
+}
+#phoneHeader2{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-right: 1px solid #ffffffaa;
+    padding-right: 5px;
+}
+#phoneHeader1{
+    width: calc(50%);
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-right: 1px solid #ffffffaa;
+    padding-right: 5px;
+}
+.phoneName{
+    font-size: 12pt;
+}
+/* - phoneHeader */
+/* + searchBar */
+#searchBarContainer{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #ffffff30;
+    border-radius: 10px;
+    background-color: #ffffff10;
+    color: #ffffffaa;
+    width: var(--SBWidth);
+    height: 30px;
+    z-index: 50;
+}
+#searchBarContainer:hover{
+    border:1px solid #ffffff60;
+    background-color: #ffffff20;
+    cursor: pointer;
+}
+#searchBar{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    color: #ffffffaa;
+    height: 30px;
+    z-index: 30;
+    width: 100%;
+}
+#SBIcon{
+    margin-left: 4px;
+}
+#SBIClose{
+    width: 30px;
+    height: 30px;
+    margin-left: 3px;
+}
+#SBTitle{
+    color: #ffffffcc;
+    font-size: 12pt;
+}
+#searchBarText{
+    height: 100%;
+    width: 100%;
+    display: none;
+    flex-direction: row;
+    align-items: center;
+}
+#SBInput{
+    background-color: transparent;
+    border: none;
+    width: 100%;
+    font-size: 12pt;
+    padding-right: 10px;
+    color: #ffffff;
+}
+#SBInput::placeholder{
+    color: #ffffffa0;
+}
+#SBInput:focus-visible #searchBarContainer{
+    border: 1px solid #fff;
+}
+#SBInput:focus #searchBarContainer{
+    border: 1px solid #fff;
+}
+#SBInput:focus-visible{
+    outline: none;
+}
+/* + openSearchBar */
+#openSB{
+    width: var(--SBWidth);
+    height: var(--OSBHeight);
+    display: block;
+    position: fixed;
+    background-color: #242424aa;
+    border: 1px solid #ffffff30;
+    border-radius: 10px;
+    z-index: 20;
+    backdrop-filter: blur(10px);
+    top: var(--OSBTop);
+    overflow: hidden;
+    left: calc(50% - (var(--SBWidth)/2) - 1px);
+    transition: top 0.3s ease-out;
+    box-shadow: #12121270 0 0 10px 5px;
+}
+#OContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    height:calc(100% - 40px);
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    width: 100%;
+}
+#OResults > div{
+    margin-bottom: 15px;
+}
+#OSearch{
+    display: none;
+}
+#ORecent{
+    display: block;
+}
+#ORecomended{
+    display: block;
+}
+.searchTitle{
+    font-size: var(--secondaryFontSize);
+    padding: 0 4px 8px 0;
+}
+#OResults{
+    width: 100%;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    padding: 8px 8px 30px 8px;
+    margin-left: 3px;
+}
+/* + openSearchBarOptions */
+#OOptions{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    border-radius: 10px 10px 0 0;
+    border-bottom: 1px solid #ffffff30;
+    background-color: #ffffff10;
+}
+.OOption{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    padding: 4px;
+    border: 1px solid transparent;
+    border-radius: inherit;
+}
+.seprator{
+    height: 40px;
+    border-left: 1px solid #ffffff30;
+}
+.OOption:hover{
+    background-color: #ffffff40;
+    border: 1px solid #ffffff;
+    cursor: pointer;
+    box-shadow: #ffffffaa 0px 2px 10px 0px;
+}
+.OOTitle{
+    font-size: var(--secondaryFontSize);
+}
+.OOIcon{
+    width: 30px;
+    height: 30px;
+    margin-left: 4px;
+}
+.OOption:hover .OOTitle{
+    color: #ffffff;
+}
+.OOption:hover .OOIcon{
+    fill: white;
+}
+.OOBorderTop{
+    border-top: 1px solid #ffffff30;
+    border-bottom: 1px solid transparent;
+}
+.OOBorderBottom{
+    border-bottom: 1px solid #ffffff30;
+}
+#OCCheck{
+    display: none;
+}
+#OCExit{
+    display: none;
+}
+#OOAdvancedClose{
+    display: none;
+}
+
+#OCCheck > svg{
+    fill: var(--green);    
+}
+#OCCheck:hover #OOCheckTitle{
+    color: var(--green);
+}
+/* - openSearchBarOptions */
+/* + openSelectedForComparision */
+#OSelectedRight{
+    display: none;
+    border-bottom-right-radius: 10px;
+}
+#OSelectedLeft{
+    display: none;
+    border-bottom-left-radius: 10px;
+}
+.OSelected{
+    border: 1px solid #ffffff40;
+    height: calc(100% - 2px);
+    background-color: #ffffff30;
+}
+.OSInfo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 8px;
+    height: calc(256px + 1px);
+}
+.OSIImage{
+    height: 160px;
+    padding: 0px 0 20px 0;
+}
+.OSIName{
+    font-size: 12pt;
+    margin: 3px 6px;
+}
+.OSelected > .searchTitle{
+    padding: 8px;
+}
+.OSelected > .OOptions > .OOption{
+    padding: none;
+    width: auto;
+}
+#OSelectedleft > .OOptions > .OOption{
+    border-bottom-left-radius: 10px;
+}
+#OSelectedright > .OOptions > .OOption{
+    border-bottom-right-radius: 10px;
+}
+/* - openSelected */
+/* + openAdvanced */
+#OAdvanced{
+    display: none;
+    padding: 8px;
+    width: 100%;
+    border-right: 1px solid #ffffff30;
+    margin-right: 2px;
+}
+#OAdvanced *{
+    font-size: 12pt;
+}
+#OAdvanced .searchTitle{
+    font-size: 14pt;
+}
+#OAForm{
+    width: 100%;
+}
+#OAForm > *{
+    width: 100%;
+    height: 30px;   
+    margin-bottom: 5px;
+}
+.FLable{
+    margin-left: 7px;
+}
+#FPrice{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+#FPriceOverview{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 5px 0px 5px;
+    background-color: #12121240;
+    border: 1px solid #ffffff60;
+    border-radius: 5px;
+    cursor: pointer;
+    position: relative;
+    width: 100%;
+    height: 28px;
+}
+.FIcon{
+    width: 30px;
+    height: 30px;
+}
+#FPDoneIcon{
+    display: none;
+    fill: var(--green);
+}
+#FPContainer{
+    display: block;
+    position: absolute;
+    top: 32px;
+    left: 0;
+    background-color: #12121250;
+    backdrop-filter: blur(60px);
+    border-radius: 10px;
+    padding: 3px 5px;
+    width: 100%;
+    border: 1px solid #ffffff30;
+}
+.FPStart{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.FPInput{
+    background-color: #ffffff20;
+    border: 1px solid #ffffff30;
+    border-radius: 5px;
+    width: 100%;
+    padding: 0 4px;
+    margin: 2px 6px;
+}
+.FPInput:focus-visible{
+    outline: none;
+}
+.FPInput::placeholder{
+    color: #ffffff9a;
+}
+#FSSelector{
+    background-color: #12121230;
+    border: 1px solid #ffffff60;
+    border-radius: 5px;
+    width: 100%;
+    padding: 1px;
+}
+#FSeries{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+}
+#FSSelector > option{
+    background-color: #121212;
+}
+.FRating{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.FProgressBar{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-left: 3px;
+}
+.progressBarCon{
+    width: 100%;
+    height: 6px;
+    background: radial-gradient(circle at 100% ,#00bbff 0%, #0088ff 100%);
+    border-radius: 2px;
+    position: relative;
+    margin: 0 6px;
+}
+.FUPCircle{
+    position: absolute;
+    top: 50%;
+    left: calc(100% - 15px);
+    transform: translate(0, -50%);
+    background-color: #0077ff;
+    border: 1px solid var(--blue);
+    border-radius: 10px;
+    width: 15px;
+    height: 15px;
+    cursor: pointer;
+    box-shadow: var(--blue) 0 0 5px 0.5px;
+}
+
+/* - openAdvanced */
+/* + phoneModule */
+.phoneModule{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid transparent;
+    border-bottom: 1px solid #ffffff30;
+    padding: 7px 7px 7px 7px;
+    border-radius: 8px;
+}
+.phoneModule:hover{
+    background-color: #ffffff30;
+    box-shadow: #ffffff30 0 0 5px 3px;
+    border: 1px solid #ffffff30;
+    cursor: pointer;
+}
+.phoneModule:hover .PMName{
+    color: #ffffff;
+}
+#PMLAdd{
+    display: none;
+}
+#PMLCompare{
+    fill: none;
+}
+.phoneModule:hover .PMLIcon{
+    fill: white;
+}
+.phoneModule:hover #PMLCompare{
+    fill: #FFF;
+}
+.PMLIcon{
+    margin-right: 5px;
+}
+.PMRight{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.PMLeft{
+    direction: ltr;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+}
+.PMImage{
+    height: 56px;
+    padding-left: 8px;
+}
+.PMName{
+    font-size: var(--thirdFontSize);
+}
+/* - phoneModule */
+/* - openSearchBar */
+/* - searchBox */
+/* + overallUseB */
+#overallUseB{
+    display: flex;
+    direction: ltr;
+    flex:1;
+}
+#overallUseB > svg{
+    width: 36px;
+    height: 36px;
+    fill: var(--mainColor);
+}
+#overallUseB > svg:hover{
+    fill: white;
+    cursor: pointer;
+}
+/* - overallUseB */
+/* - header */
+/* + footer */
+#footer{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--layer1);
+    height: 44px;
+}
+/* - footer */

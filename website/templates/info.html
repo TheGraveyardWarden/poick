@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <title>{{ phone["nameEN"] }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/headerAndGeneral.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/info.css') }}">
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='/pics/logo.png') }}" />
+    <script src="{{ url_for('static', filename='js/info.js') }}" defer></script>
+</head>
+<body>
+<div id="bodyContainer">
+    <div class="reviewContainer">
+        <div class="dataRight">
+            <img class="bannerImage" src="http://localhost:9000/file/{{ phone['pic'] }}">
+            <div class="reviewInfo">
+                <div class="nameFR">{{ phone["nameFA"] }}</div>
+                <div class="nameEN">{{ phone["nameEN"] }}</div>
+                {% if "websiteRecommendedPhone" in phone["tags"] %}
+                    <div class="Tag">موبایل هفته</div>
+                {% endif %}
+                <div class="priceContainer">
+                    <div class="priceLable">قیمت &nbsp</div>
+                    <div class="price">{{ best_price }}</div>
+                    <div class="priceTag">&nbsp ريال</div>
+                </div>
+            </div>
+        </div>
+        <div class="buttons">
+            <div id="BCompare" class="BB"><svg xmlns="http://www.w3.org/2000/svg" height="28" viewBox="0 -960 960 960" width="28"><path d="M414.667-40v-80H186.666q-27 0-46.833-19.833T120-186.666v-586.668q0-27 19.833-46.833T186.666-840h228.001v-80h66.666v880h-66.666ZM186.666-228h228.001v-264.667L186.666-228ZM548-120v-370l225.334 262v-545.334H548V-840h225.334q27 0 46.833 19.833T840-773.334v586.668q0 27-19.833 46.833T773.334-120H548Z"/></svg> مقایسه</div>
+            <div class="BAdvanced BB">حالت پیشرفته</div>
+            <div class="BFroshande BB">لیست فروشنده ها</div>
+            <div class="BLabel BB">
+                <div class="checkBox"></div>
+                <div class="BText">نمایش لبه</div>
+            </div>
+            <div class="BColor BB">
+                <div class="colorBox"></div>
+                <div class="BText">انتخاب رنگ</div>
+            </div>
+        </div>
+    </div>
+    <div class="overallRating">
+        {% if phone["series"] == "پرچمدار" %}
+            <div class="overallBox">
+                <div class="overallIcon">
+                    <img src="{{ url_for('static', filename='pics/flagship.png') }}">
+                </div>
+                <div class="overallInfo">
+                    <div class="overallTitle">رده</div>
+                    <div class="overallSubtitle">پرچمدار</div>
+                </div>
+            </div>
+        {% endif %}
+        {% if phone["series"] == "میان رده" %}
+            <div class="overallBox">
+                <div class="overallIcon">
+                    <img src="{{ url_for('static', filename='pics/midRange.png') }}">
+                </div>
+                <div class="overallInfo">
+                    <div class="overallTitle">رده</div>
+                    <div class="overallSubtitle">میان رده</div>
+                </div>
+            </div>
+        {% endif %}
+        {% if phone["series"] == "اقتصادی" %}
+            <div class="overallBox">
+                <div class="overallIcon">
+                    <img src="{{ url_for('static', filename='pics/budget.png') }}">
+                </div>
+                <div class="overallInfo">
+                    <div class="overallTitle">رده</div>
+                    <div class="overallSubtitle">اقتصادی</div>
+                </div>
+            </div>
+        {% endif %}
+    </div>
+    <div class="dataContainer">
+        <div class="title titleMoshakhasat">مشخصات</div>
+        <div class="specContainer">
+            <div class="S" id="design" onclick="toggleScroll('design')">
+                <div class="dataS">
+                    <svg fill="#ffffffd5" xmlns="http://www.w3.org/2000/svg" height="40" viewBox="0 -960 960 960" width="40"><path d="m360.718-501.383 90.59-90.795-78.411-78.617-47.051 47.308-35.384-35.384 47.103-47.051-76.155-75.745-90.795 90.795 190.103 189.489Zm329.359 330.384 90.795-91.206-76.155-76.155-47.052 47.103-35.383-35.384 46.846-47.051-77.565-77.616-90.59 90.59 189.104 189.719Zm10.769-598.745 69.513 69.514-69.513-69.514ZM281.308-140.001H140.001v-141.307l184.718-184.718-224.718-224.846L260.743-852.69l226.513 225.718 177.975-178.181q7.821-7.82 17.077-11.333 9.256-3.513 19.102-3.513 9.589 0 18.845 3.513 9.257 3.513 17.077 11.333l67.821 69.18q7.82 7.821 11.141 17.077 3.32 9.256 3.32 18.845 0 9.846-3.32 18.807-3.321 8.962-11.141 16.782L627.947-486.923 852.69-261.41 691.538-100.412 466.436-325.13 281.308-140.001Zm-91.052-50.255h69.309l393.051-393.257-69.513-69.513-392.847 393.461v69.309Zm427.642-428.103-34.795-34.667 69.513 69.513-34.718-34.846Z"/></svg>
+                    <div class="textS">
+                        <div class="titleS">
+                            طراحی و بدنه
+                        </div>
+                        <div class="previewS">
+                            {{ phone["details"]["design"]["rate"] }} درصد
+                        </div>
+                    </div>
+                </div>
+                <div class="moreDB"><svg xmlns="http://www.w3.org/2000/svg" fill="white" height="40" viewBox="0 -960 960 960" width="40"><path d="M480-345 240-585l47.333-47.333L480-438.999l192.667-192.667L720-584.333 480-345Z"/></svg></div>
+                <div class="closeB"><svg xmlns="http://www.w3.org/2000/svg" fill="white" height="40" viewBox="0 -960 960 960" width="40"><path d="m251.333-204.667-46.666-46.666L433.334-480 204.667-708.667l46.666-46.666L480-526.666l228.667-228.667 46.666 46.666L526.666-480l228.667 228.667-46.666 46.666L480-433.334 251.333-204.667Z"/></svg></div>
+            </div>
+            <div class="detailContainer">
+                {% for d in phone["details"]["design"] %}
+                    {% if d != "rate" %}
+                        <div class="DRow">
+                            <div class="DHeader">
+                                {{ d }}:
+                            </div>
+                            <div class="DInfo">
+                                {% if d != "مقاومت" %}
+                                    {% for v in phone["details"]["design"][d] %}
+                                        {{ v }}
+                                    {%endfor %}
+                                {% else %}
+                                    {% if phone["details"]["design"][d] %}
+                                        مقاوم در برابر اب و گرد قبار
+                                    {% else %}
+                                        ندارد
+                                    {% endif %}
+                                {% endif %}
+                            </div>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+            <div class="S" id="screen" onclick="toggleScroll('screen');">
+                <div class="dataS">
+                    <svg fill="#ffffffd5" xmlns="http://www.w3.org/2000/svg" height="40" viewBox="0 -960 960 960" width="40"><path d="M282.565-60.002q-25.788 0-44.176-18.387-18.388-18.388-18.388-44.176v-714.87q0-25.788 18.388-44.176t44.176-18.388h394.87q25.788 0 44.176 18.388t18.388 44.176v714.87q0 25.788-18.388 44.176-18.388 18.387-44.176 18.387h-394.87Zm-12.309-95.383v32.82q0 4.616 3.847 8.462 3.846 3.847 8.462 3.847h394.87q4.616 0 8.462-3.847 3.847-3.846 3.847-8.462v-32.82H270.256Zm0-50.255h419.488v-548.72H270.256v548.72Zm0-598.975h419.488v-32.82q0-4.616-3.847-8.462-3.846-3.847-8.462-3.847h-394.87q-4.616 0-8.462 3.847-3.847 3.846-3.847 8.462v32.82Zm0 0v-45.129 45.129Zm0 649.23v45.129-45.129Z"/></svg>
+                    <div class="textS">
+                        <div class="titleS">
+                           صفحه نمایش
+                        </div>
+                        <div class="previewS">
+                            {{ phone["details"]["display"]["rate"] }} درصد
+                        </div>
+                    </div>
+                </div>
+                <div class="moreDB"><svg xmlns="http://www.w3.org/2000/svg" fill="white" height="40" viewBox="0 -960 960 960" width="40"><path d="M480-345 240-585l47.333-47.333L480-438.999l192.667-192.667L720-584.333 480-345Z"/></svg></div>
+                <div class="closeB"><svg xmlns="http://www.w3.org/2000/svg" fill="white" height="40" viewBox="0 -960 960 960" width="40"><path d="m251.333-204.667-46.666-46.666L433.334-480 204.667-708.667l46.666-46.666L480-526.666l228.667-228.667 46.666 46.666L526.666-480l228.667 228.667-46.666 46.666L480-433.334 251.333-204.667Z"/></svg></div>
+            </div>
+            <div class="detailContainer"> 
+                {% for d in phone["details"]["display"] %}
+                    {% if d != "rate" %}
+                        <div class="DRow">
+                            <div class="DHeader">
+                                {{ d }}:
+                            </div>
+                            <div class="DInfo">
+                                {% for v in phone["details"]["display"][d] %}
+                                    {{ v }}
+                                {%endfor %}
+                            </div>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>  
+            <div class="S" id="camera" onclick="toggleScroll('camera');">
+                <div class="dataS">
+                    <svg fill="#ffffffd5" xmlns="http://www.w3.org/2000/svg" height="40" viewBox="0 -960 960 960" width="40"><path d="M479.795-278.77q67.564 0 113.755-46.192 46.192-46.192 46.192-113.756t-46.192-113.55q-46.191-45.987-113.755-45.987t-113.551 45.987q-45.986 45.986-45.986 113.55t45.986 113.756q45.987 46.192 113.551 46.192Zm0-50.255q-46.821 0-78.052-31.436-31.231-31.436-31.231-78.257 0-46.821 31.231-78.051Q432.974-548 479.795-548q46.821 0 78.257 31.231 31.436 31.23 31.436 78.051t-31.436 78.257q-31.436 31.436-78.257 31.436Zm-317.23 189.024q-25.788 0-44.176-18.388t-18.388-44.176V-674.05q0-25.436 18.388-44t44.176-18.564h132.307l73.59-83.385h223.076l73.59 83.385h132.307q25.436 0 44 18.564t18.564 44v471.485q0 25.788-18.564 44.176t-44 18.388h-634.87Zm0-50.255h634.87q5.385 0 8.847-3.462 3.462-3.462 3.462-8.847V-674.05q0-5.129-3.462-8.719t-8.847-3.59H642.154l-73.385-83.385H391.231l-73.385 83.385H162.565q-5.385 0-8.847 3.59-3.462 3.59-3.462 8.719v471.485q0 5.385 3.462 8.847 3.462 3.462 8.847 3.462ZM480-438.513Z"/></svg>
+                    <div class="textS">
+                        <div class="titleS">
+                            دوربین
+                        </div>
+                        <div class="previewS">
+                            {{ phone["details"]["camera"]["rate"] }} درصد
+                        </div>
+                    </div>
+                </div>
+                <div class="moreDB"><svg xmlns="http://www.w3.org/2000/svg" fill="white" height="40" viewBox="0 -960 960 960" width="40"><path d="M480-345 240-585l47.333-47.333L480-438.999l192.667-192.667L720-584.333 480-345Z"/></svg></div>
+                <div class="closeB"><svg xmlns="http://www.w3.org/2000/svg" fill="white" height="40" viewBox="0 -960 960 960" width="40"><path d="m251.333-204.667-46.666-46.666L433.334-480 204.667-708.667l46.666-46.666L480-526.666l228.667-228.667 46.666 46.666L526.666-480l228.667 228.667-46.666 46.666L480-433.334 251.333-204.667Z"/></svg></div>
+            </div>
+            <div class="detailContainer">
+                {% for d in phone["details"]["camera"] %}
+                    {% if d != "rate" %}
+                        <div class="DRow">
+                            <div class="DHeader">
+                                {{ d }}:
+                            </div>
+                            <div class="DInfo">
+                                {% if d != "تون قنی" %}
+                                    {% for v in phone["details"]["camera"][d] %}
+                                        {{ v }}
+                                    {%endfor %}
+                                {% else %}
+                                    {% if phone["details"]["camera"][d] %}
+                                        دارد
+                                    {% else %}
+                                        ندارد
+                                    {% endif %}
+                                {% endif %}
+                            </div>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+            <div class="S" id="performance" onclick="toggleScroll('performance');">
+                <div class="dataS">
+                    <svg fill="#ffffffd5" xmlns="http://www.w3.org/2000/svg" height="40" viewBox="0 -960 960 960" width="40"><path d="M388.258-388.258v-183.074h183.074v183.074H388.258Zm50.255-50.255h82.564v-82.564h-82.564v82.564Zm-68.512 289.28v-70.768h-87.436q-25.788 0-44.176-18.388t-18.388-44.176v-87.436h-70.768v-50.255h70.768v-121.386h-70.768v-50.255h70.768v-87.435q0-25.789 18.388-44.176 18.388-18.388 44.176-18.388h87.436v-68.871h50.255v68.871h121.386v-68.871h50.255v68.871h87.435q25.789 0 44.176 18.388 18.388 18.387 18.388 44.176v87.435h68.871v50.255h-68.871v121.386h68.871v50.255h-68.871v87.436q0 25.788-18.388 44.176-18.387 18.388-44.176 18.388h-87.435v70.768h-50.255v-70.768H420.256v70.768h-50.255Zm309.331-121.023q4.616 0 8.463-3.847 3.846-3.846 3.846-8.462v-396.767q0-4.616-3.846-8.463-3.847-3.846-8.463-3.846H282.565q-4.616 0-8.462 3.846-3.847 3.847-3.847 8.463v396.767q0 4.616 3.847 8.462 3.846 3.847 8.462 3.847h396.767ZM480-480Z"/></svg>
+                    <div class="textS">
+                        <div class="titleS">
+                           پردازشگر و حافضه
+                        </div>
+                        <div class="previewS">
+                            {{ phone["details"]["performance"]["rate"] }} درصد 
+                        </div>
+                    </div>
+                </div>
+                <div class="moreDB"><svg xmlns="http://www.w3.org/2000/svg" fill="white" height="40" viewBox="0 -960 960 960" width="40"><path d="M480-345 240-585l47.333-47.333L480-438.999l192.667-192.667L720-584.333 480-345Z"/></svg></div>
+                <div class="closeB"><svg xmlns="http://www.w3.org/2000/svg" fill="white" height="40" viewBox="0 -960 960 960" width="40"><path d="m251.333-204.667-46.666-46.666L433.334-480 204.667-708.667l46.666-46.666L480-526.666l228.667-228.667 46.666 46.666L526.666-480l228.667 228.667-46.666 46.666L480-433.334 251.333-204.667Z"/></svg></div>
+            </div>
+            <div class="detailContainer">
+                {% for d in phone["details"]["performance"] %}
+                    {% if d != "rate" %}
+                        <div class="DRow">
+                            <div class="DHeader">
+                                {{ d }}:
+                            </div>
+                            <div class="DInfo">
+                                {% for v in phone["details"]["performance"][d] %}
+                                    {{ v }}
+                                {%endfor %}
+                            </div>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+            <div class="S" id="battrey" onclick="toggleScroll('battrey');">
+                <div class="dataS">
+                    <svg fill="#ffffffd5" xmlns="http://www.w3.org/2000/svg" height="40" viewBox="0 -960 960 960" width="40"><path d="M661.539-93.77v-109.307h-71.025L698.461-385.82v108.897h71.025L661.539-93.77Zm-332.564-6.231q-13.467 0-22.374-8.907-8.907-8.907-8.907-22.375v-635.665q0-13.212 8.907-22.247t22.374-9.035h77.179v-61.769h147.692v61.769h77.258q13.485 0 22.344 9.035 8.858 9.035 8.858 22.247v303.923q-13.435.769-25.935 2.756-12.499 1.987-24.319 6.243V-748.36H347.949v365.335h158.077q-23.997 29.231-37.678 65.448-13.681 36.218-13.681 76.833 0 40.923 14.23 76.923 14.231 35.999 39.359 63.82H328.975Z"/></svg>
+                    <div class="textS">
+                        <div class="titleS">
+                            باتری
+                        </div>
+                        <div class="previewS">
+                            {{ phone["details"]["battery"]["rate"] }} درصد 
+                        </div>
+                    </div>
+                </div>
+                <div class="moreDB"><svg xmlns="http://www.w3.org/2000/svg" fill="white" height="40" viewBox="0 -960 960 960" width="40"><path d="M480-345 240-585l47.333-47.333L480-438.999l192.667-192.667L720-584.333 480-345Z"/></svg></div>
+                <div class="closeB"><svg xmlns="http://www.w3.org/2000/svg" fill="white" height="40" viewBox="0 -960 960 960" width="40"><path d="m251.333-204.667-46.666-46.666L433.334-480 204.667-708.667l46.666-46.666L480-526.666l228.667-228.667 46.666 46.666L526.666-480l228.667 228.667-46.666 46.666L480-433.334 251.333-204.667Z"/></svg></div>
+            </div>
+            <div class="detailContainer">
+                {% for d in phone["details"]["battery"] %}
+                    {% if d != "rate" %}
+                        <div class="DRow">
+                            <div class="DHeader">
+                                {{ d }}:
+                            </div>
+                            <div class="DInfo">
+                                {% for v in phone["details"]["battery"][d] %}
+                                    {{ v }}
+                                {%endfor %}
+                            </div>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+            <div class="S" id="comms" onclick="toggleScroll('comms');">
+                <div class="dataS">
+                    <svg fill="#ffffffd5" xmlns="http://www.w3.org/2000/svg" height="40" viewBox="0 -960 960 960" width="40"><path d="M208.77-288.77Q154-343.59 124.693-413.316q-29.307-69.727-29.307-146.667t29.307-146.679Q154-776.401 208.77-831.23l30.871 30.871q-47.821 48.487-74.064 110.346Q139.333-628.154 139.333-560t26.244 130.013q26.243 61.859 74.064 110.346L208.77-288.77Zm92-92q-35.751-35.843-54.568-82.063-18.816-46.219-18.816-97.154 0-50.936 18.816-97.164 18.817-46.228 54.568-82.079l30.871 30.871q-29.41 29.82-44.859 68.141-15.449 38.321-15.449 80.218 0 41.897 15.449 79.885 15.449 37.987 44.859 68.474L300.77-380.77Zm154.103 243.076v-342.512q-26.641-7.435-42.757-29.717-16.115-22.282-16.115-50.077 0-35.256 24.371-59.628 24.372-24.371 59.628-24.371t59.628 24.371q24.371 24.372 24.371 59.628 0 27.795-16.115 50.077-16.116 22.282-42.757 29.717v342.512h-50.254ZM659.23-380.77l-30.871-30.871q29.41-30.487 44.859-68.474 15.449-37.988 15.449-79.885 0-41.897-15.449-79.885-15.449-37.987-44.859-68.474l30.871-30.871q35.751 35.843 54.568 82.063 18.816 46.219 18.816 97.154 0 50.936-18.816 97.164-18.817 46.228-54.568 82.079Zm92 92-30.871-30.871q47.821-48.487 74.064-110.346Q820.667-491.846 820.667-560t-26.244-130.013q-26.243-61.859-74.064-110.346l30.871-30.871q54.77 54.82 84.077 124.546 29.307 69.727 29.307 146.667t-29.307 146.679Q806-343.599 751.23-288.77Z"/></svg>
+                    <div class="textS">
+                        <div class="titleS">
+                            ارتباطات
+                        </div>
+                        <div class="previewS">
+                            {{ phone["details"]["comms"]["rate"] }} درصد
+                        </div>
+                    </div>
+                </div>
+                <div class="moreDB"><svg xmlns="http://www.w3.org/2000/svg" fill="white" height="40" viewBox="0 -960 960 960" width="40"><path d="M480-345 240-585l47.333-47.333L480-438.999l192.667-192.667L720-584.333 480-345Z"/></svg></div>
+                <div class="closeB"><svg xmlns="http://www.w3.org/2000/svg" fill="white" height="40" viewBox="0 -960 960 960" width="40"><path d="m251.333-204.667-46.666-46.666L433.334-480 204.667-708.667l46.666-46.666L480-526.666l228.667-228.667 46.666 46.666L526.666-480l228.667 228.667-46.666 46.666L480-433.334 251.333-204.667Z"/></svg></div>
+            </div>
+            <div class="detailContainer">
+                {% for d in phone["details"]["comms"] %}
+                    {% if d != "rate" %}
+                        <div class="DRow">
+                            <div class="DHeader">
+                                {{ d }}:
+                            </div>
+                            <div class="DInfo">
+                                {% if type(phone["details"]["comms"][d]) != bool %}
+                                    {% for v in phone["details"]["comms"][d] %}
+                                        {{ v }}
+                                    {%endfor %}
+                                {% else %}
+                                    {% if phone["details"]["comms"][d] %}
+                                        دارد
+                                    {% else %}
+                                        ندارد
+                                    {% endif %}
+                                {% endif %}
+                            </div>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+            <div class="S" id="others" onclick="toggleScroll('others');">
+                <div class="dataS">
+                    <svg fill="#ffffffd5" xmlns="http://www.w3.org/2000/svg" height="40" viewBox="0 -960 960 960" width="40"><path d="M479.849-100.001q-79.604 0-148.867-29.423-69.263-29.423-120.719-80.832-51.456-51.408-80.859-120.731-29.403-69.323-29.403-149.091 0-79.101 29.387-148.47 29.386-69.368 80.814-120.81 51.428-51.441 120.778-81.041 69.35-29.6 149.02-29.6 68.076 0 127.858 21.436 59.783 21.436 108.347 59.231l-35.948 36.794q-41.744-32.231-92.242-49.718Q537.517-809.744 480-809.744q-138.692 0-234.218 95.526Q150.256-618.692 150.256-480t95.526 234.218Q341.308-150.256 480-150.256q35.983 0 69.688-7.236 33.705-7.235 64.748-21.021l37.82 38.435q-38.949 19.23-82.24 29.654-43.291 10.423-90.167 10.423Zm295.024-74.872v-120h-120v-50.254h120v-120h50.254v120h120v50.254h-120v120h-50.254ZM421.744-310.924 268.155-464.923l36.614-36.871 116.975 116.975 401.384-401.59 37.281 36.615-438.665 438.87Z"/></svg>
+                    <div class="textS">
+                        <div class="titleS">
+                            سایر امکانات 
+                        </div>
+                        <div class="previewS">
+                             
+                        </div>
+                    </div>
+                </div>
+                <div class="moreDB"><svg xmlns="http://www.w3.org/2000/svg" fill="white" height="40" viewBox="0 -960 960 960" width="40"><path d="M480-345 240-585l47.333-47.333L480-438.999l192.667-192.667L720-584.333 480-345Z"/></svg></div>
+                <div class="closeB"><svg xmlns="http://www.w3.org/2000/svg" fill="white" height="40" viewBox="0 -960 960 960" width="40"><path d="m251.333-204.667-46.666-46.666L433.334-480 204.667-708.667l46.666-46.666L480-526.666l228.667-228.667 46.666 46.666L526.666-480l228.667 228.667-46.666 46.666L480-433.334 251.333-204.667Z"/></svg></div>
+            </div>
+            <div class="detailContainer">
+                {% for d in phone["details"]["others"] %}
+                    <div class="DRow">
+                        <div class="DHeader">
+                            {{ d }}:
+                        </div>
+                        <div class="DInfo">
+                            {% if type(phone["details"]["others"][d]) != bool %}
+                                {% for v in phone["details"]["others"][d] %}
+                                    {{ v }}
+                                {%endfor %}
+                            {% else %}
+                                {% if phone["details"]["others"][d] %}
+                                    دارد
+                                {% else %}
+                                    ندارد
+                                {% endif %}
+                            {% endif %}
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <div class="suggestedB">
+        <div class="SB">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M422-40v-80H180q-24 0-42-18t-18-42v-600q0-24 18-42t42-18h242v-80h60v880h-60ZM180-222h242v-277L180-222Zm362 102v-375l238 273v-558H542v-60h238q24 0 42 18t18 42v600q0 24-18 42t-42 18H542Z"/></svg>
+            <div>
+                مقایسه کنید
+            </div>
+        </div>
+        <div class="SB">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M132-160v-60h123l-14-14q-60-60-86.5-121.5T128-476q0-109 62.5-195T355-790v62q-76 30-121.5 99T188-476q0 52 17.5 98.5T265-293l30 27v-117h60v223H132Zm699-334h-60q-2-51-20-94.5T695-667l-30-27v117h-60v-223h223v60H704l15 14q58 55 84 115t28 117ZM696-40l-5-48q-20-6-41-17.5T616-131l-42 20-35-54 38-30q-5-23-5-41.5t5-41.5l-38-30 35-55 42 20q13-12 34-24t41-18l5-49h60l6 49q20 6 41 18t34 24l42-20 35 55-38 30q5 23 5 41.5t-5 41.5l38 30-35 54-42-20q-13 14-34 25.5T762-88l-6 48h-60Zm30-95q44 0 73-29t29-73q0-44-29-73t-73-29q-44 0-73 29t-29 73q0 44 29 73t73 29Z"/></svg>
+            <div>
+                حالت پیشرفته
+            </div>
+        </div>
+        <div id="SBSearch" class="SB">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M796-121 533-384q-30 26-69.959 40.5T378-329q-108.162 0-183.081-75Q120-479 120-585t75-181q75-75 181.5-75t181 75Q632-691 632-584.85 632-542 618-502q-14 40-42 75l264 262-44 44ZM377-389q81.25 0 138.125-57.5T572-585q0-81-56.875-138.5T377-781q-82.083 0-139.542 57.5Q180-666 180-585t57.458 138.5Q294.917-389 377-389Z"/></svg>
+            <div>
+                جستجو...
+            </div>
+        </div>
+    </div>
+    <div id="shops">
+        <div class="title shopTitle">
+            فروشندگان
+        </div>
+        <div id="shopContainer">
+            <div class="memorySelectContainer">
+                <div class="MS MSSelected">
+                    حافضه 256، رم 8
+                </div>
+                <div class="MS">
+                    حافضه 256، رم 12
+                </div>
+                <div class="MS">
+                    حافضه 512، رم 12
+                </div>
+                <div class="MS">
+                    حافضه 1024، رم 12
+                </div>
+            </div>
+            <div class="shop">
+                <div class="shopRight">
+                    <div class="shopIcon">
+                        <img src="icons/digikala.png">
+                        <div class="shopName">دیجیکالا</div>
+                    </div>
+                    <div class="shopInfo">
+                        <div class="shopPrice">
+                            قیمت 600,000,000 ریال
+                        </div>
+                        <div class="shopAvalability">
+                            موجود در انبار
+                        </div>
+                        <div class="shopWarranty">
+                            دارای 6 ماه گارانتی
+                        </div>
+                    </div>
+                </div>
+                <div class="shopLeft">
+                    <div class="shopAddress">Digikala.com</div>
+                    <div class="shopLink" title="digikala.com">
+                        <svg class="shopLinkIcon" fill="#ffffff" xmlns="http://www.w3.org/2000/svg" height="40" viewBox="0 -960 960 960" width="40"><path d="M446.667-280H280q-83 0-141.5-58.5T80-480q0-83 58.5-141.5T280-680h166.667v66.666H280q-55.556 0-94.445 38.844-38.889 38.843-38.889 94.333 0 55.49 38.889 94.491 38.889 39 94.445 39h166.667V-280ZM323.333-446.667v-66.666h313.334v66.666H323.333Zm190 166.667v-66.666H680q55.556 0 94.445-38.844 38.889-38.843 38.889-94.333 0-55.49-38.889-94.491-38.889-39-94.445-39H513.333V-680H680q83 0 141.5 58.5T880-480q0 83-58.5 141.5T680-280H513.333Z"/></svg>
+                        <div>ورود به دیجی کالا</div>
+                    </div>
+                </div>
+            </div>
+            <div class="shop">
+                <div class="shopRight">
+                    <div class="shopIcon">
+                        <img src="icons/digikala.png">
+                        <div class="shopName">iranshop</div>
+                    </div>
+                    <div class="shopInfo">
+                        <div class="shopPrice">
+                            قیمت 700,000,000 ریال
+                        </div>
+                        <div class="shopAvalability">
+                            موجود در انبار
+                        </div>
+                        <div class="shopWarranty">
+                            دارای 12 ماه گارانتی
+                        </div>
+                    </div>
+                </div>
+                <div class="shopLeft">
+                    <div class="shopAddress">iranshop.ir</div>
+                    <div class="shopLink" title="digikala.com">
+                        <div class="shopLinkIcon">
+                            <svg fill="#ffffff" xmlns="http://www.w3.org/2000/svg" height="40" viewBox="0 -960 960 960" width="40"><path d="M446.667-280H280q-83 0-141.5-58.5T80-480q0-83 58.5-141.5T280-680h166.667v66.666H280q-55.556 0-94.445 38.844-38.889 38.843-38.889 94.333 0 55.49 38.889 94.491 38.889 39 94.445 39h166.667V-280ZM323.333-446.667v-66.666h313.334v66.666H323.333Zm190 166.667v-66.666H680q55.556 0 94.445-38.844 38.889-38.843 38.889-94.333 0-55.49-38.889-94.491-38.889-39-94.445-39H513.333V-680H680q83 0 141.5 58.5T880-480q0 83-58.5 141.5T680-280H513.333Z"/></svg>
+                        </div>
+                        <div>
+                            ورود به ایران شاپ
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="footer">
+    تمام حقوق برای تیم مولتیکس محفوظ است &copy;
+</div>
+</body>
+</html>

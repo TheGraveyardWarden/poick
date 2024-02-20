@@ -1,0 +1,243 @@
+#bodyContainer{
+    margin-top: var(--SBHeight);
+    padding: var(--containersPadding);
+}
+.legends{
+    overflow: hidden;
+    position: relative;
+    border-radius: 12px;
+    background-image: linear-gradient(315deg, #037ADE,#03E5B7);
+}
+.LCarousel{
+    transition: all 0.2s;
+}
+.LSeeker{
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translate(-50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.seekerCircle:nth-child(1) {
+    border: 2px solid var(--blue);
+}
+.seekerCircle:nth-child(2) {
+    border: 2px solid var(--green);
+}
+.seekerCircle:nth-child(3) {
+    border: 2px solid var(--red);
+}
+.seekerCircle:nth-child(4) {
+    border: 2px solid var(--gold);
+}
+.seekerCircle:nth-child(5) {
+    border: 2px solid var(--purple);
+}
+.seekerCircle {
+    width: 20px;
+    height: 20px;
+    border-radius: 12px;
+    cursor: pointer;
+    margin: 4px;
+    transition: all 0.4s ease-in-out;
+}
+.seekerCircleActive {
+    width: 72px;
+}
+.LSeekerBtn{
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+.LSeekerBtn:hover{
+    background-color: #00000020;
+}
+.LBRight {
+    right: 0;
+}
+.LBLeft {
+    left: 0;
+}
+.LData > div{
+    margin-bottom: 8px;
+}
+.LData *{
+    color: white;
+}
+.LTitle{
+    font-size: 22pt;
+    color: white;
+    margin-bottom: 20px;
+}
+.LPriceContainer{
+    display: flex;
+    flex-direction: row;
+}
+.LPValue , .LPTag{
+    color: var(--green);
+}
+.LData > div, .LPriceContainer > div{
+    font-weight: 500;
+}
+.LImage {
+    height: 200px;
+    margin: 20px 0;
+    margin-left: 2rem;
+}
+.LContainer{
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: fit-content;
+    cursor: pointer;
+}
+.LData{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    line-height: 1.60;
+    color: black;
+    margin-right: 2.2rem;
+    height: 100%;
+}
+.LLeft{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+}
+.LRight{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    height: 100%;
+}
+.RImage{
+    height: 100px;
+    margin-left: 10px;
+}
+.RBox{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-radius: 15px;
+    background-color: var(--layer1);
+    border: 1px solid var(--border);
+    padding: 10px 13px;
+    cursor: pointer;
+    width:auto;
+    margin-left: 14px;
+}
+.RBox:hover{
+    background-color: var(--layer1Hover);
+    border-color: #ffffff60;
+}
+.RBox:hover *{
+    fill: white;
+    color: white;
+}
+.RBox:hover .price{
+    color: var(--green);
+}
+.PNamePr{
+    font-size: 16pt;
+}
+.RData{
+    align-items:flex-start;
+    white-space: nowrap;
+    overflow: none;
+}
+.title{
+    margin-top: 30px;
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+.RPhones{
+    display: flex;
+    flex-direction: row;
+    overflow:hidden;
+    margin-bottom: 15px;
+}
+.searchBox{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    border: 1px solid var(--border);
+    background-color: var(--layer1);
+    border-radius: 10px;
+    padding: 7px 9px;
+    cursor: pointer;
+}
+.searchBox:hover{
+    background-color: var(--layer1Hover);
+    border-color: #ffffff60;
+}
+.searchBox:hover *{
+    fill: white;
+    color: white;
+}
+.searchIcon{
+    width: 30px;
+    height: 30px;
+    padding-left: 7px;
+}
+#famousBrandContainer{
+    display: flex;
+    flex-direction: column;
+    background-color: var(--layer1);
+    border: 1px solid #ffffff30;
+    border-radius: 10px;
+}
+.FBRow{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+    border-bottom: 1px solid #ffffff30;
+    cursor: pointer;
+}
+.FBRow:hover,#FBExpand:hover{
+    background-color: var(--layer1);
+}
+.FBRow:hover *,#FBExpand:hover *{
+    fill: white;
+    color: white;
+}
+.FBContainer{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+}
+.FBIcon{
+    width: 50px;
+    height: 50px;
+    margin: 5px 10px;
+    border-radius: 18px;
+    overflow: hidden;
+}
+.FBSearchIcon{
+    width: 35px;
+    height: 35px;
+    margin-left: 20px;
+}
+#FBExpand{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    padding: 4px;
+}
+#FBEIcon{
+    width: 36px;
+    height: 36px;
+}

@@ -1,0 +1,32 @@
+[
+    {
+        "nameEN": "digiKala",
+        "nameFA": "دیجیکالا",
+        "domain": "digikala.com",
+        "pic": "digiKala.png"
+    },
+    {
+        "nameEN": "ITMall",
+        "nameFA": "ایران شاپ",
+        "domain": "itmall.ir",
+        "pic": "ITMall.png"
+    },
+    {
+        "nameEN": "topRayan",
+        "nameFA": "تاپ رایان",
+        "domain": "toprayan.com",
+        "pic": "topRayan.jpg"
+    },
+    {
+        "nameEN": "ranginShop",
+        "nameFA": "رنگین شاپ",
+        "domain": "ranginshop.com",
+        "pic": "ranginShop.jpg"
+    },
+    {
+        "nameEN": "technoLife",
+        "nameFA": "تکنو لایف",
+        "domain": "technolife.ir",
+        "pic": "technoLife.jpg"
+    }
+]

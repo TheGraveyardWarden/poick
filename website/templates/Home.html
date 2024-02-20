@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <title>Poick</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='/css/headerAndGeneral.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='/css/Home.css') }}">
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='/pics/logo.png') }}" />
+    <script src="{{ url_for('static', filename='/js/carousel.js') }}"></script>
+</head>
+<body>
+<div id="bodyContainer">
+    <div class="legends">
+        <div class="LCarousel">
+            <div class="LContainer" onclick="openPhone(this)">
+                <div class="LRight">
+                    <div class="LData">
+                        <div class="LTitle">موبایل منتخب سایت</div>
+                        <div class="LName">{{ most_rated[0]["nameFA"] }}</div>
+                        <div class="LName">{{ most_rated[0]["nameEN"] }}</div>
+                        <div class="LPriceContainer">
+                            <div class="LPLabel">قیمت: &nbsp</div>
+                            <div class="LPValue">{{ most_rated[0]["best_price"] }} &nbsp</div>
+                            <div class="LPTag">ريال &nbsp</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="LLeft">
+                    <img class="LImage" src="http://localhost:9000/file/{{ most_rated[0]['pic'] }}">
+                </div>
+            </div>
+            <div class="LContainer" onclick="openPhone(this)">
+                <div class="LRight">
+                    <div class="LData">
+                        <div class="LTitle">موبایل با بیشترین جستجو</div>
+                        <div class="LName">{{ favourites[0]["nameFA"] }}</div>
+                        <div class="LName">{{ favourites[0]["nameEN"] }}</div>
+                        <div class="LPriceContainer">
+                            <div class="LPLabel">قیمت: &nbsp</div>
+                            <div class="LPValue">{{ favourites[0]["best_price"] }} &nbsp</div>
+                            <div class="LPTag">ريال &nbsp</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="LLeft">
+                    <img class="LImage" src="http://localhost:9000/file/{{ favourites[0]['pic'] }}">
+                </div>
+            </div>
+        </div>
+        <div class="LBRight LSeekerBtn"><svg fill="white" xmlns="http://www.w3.org/2000/svg" height="48" viewBox="0 -960 960 960" width="48"><path d="M504-480 320-664l56-56 240 240-240 240-56-56 184-184Z"/></svg></div>
+        <div class="LBLeft LSeekerBtn"><svg fill="white" xmlns="http://www.w3.org/2000/svg" height="48" viewBox="0 -960 960 960" width="48"><path d="M560-240 320-480l240-240 56 56-184 184 184 184-56 56Z"/></svg></div>
+        <div class="LSeeker">
+            <div class="seekerCircle seekerCircleActive"></div>
+            <div class="seekerCircle"></div>
+            <div class="seekerCircle"></div>
+            <div class="seekerCircle"></div>
+            <div class="seekerCircle"></div>
+        </div>
+    </div>
+    <div class="RTitle title">موبایل های پیشنهادی</div>
+    <div class="RPhones">
+        {% for phone in most_rated %}
+            <div class="RBox">
+                <img class="RImage" src="http://localhost:9000/file/{{ phone['pic'] }}">
+                <div class="RData">
+                    <div class="PNamePr">{{ phone["nameFA"] }}</div>
+                    <div class="PNameEn">{{ phone["nameEN"] }}</div>
+                    <div class="price">{{ phone["best_price"] }} ريال</div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    <div class="searchBox" onclick="openSearchBar()">
+        <svg class="searchIcon" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z"/></svg>
+        <div>موبایل مورد نیاز خود را جستجو کنید...</div>
+    </div>
+    <div class="MsTitle title">موبایل هایی که بیشترین جستجو را داشته اند</div>
+    <div class="RPhones">
+        {% for phone in favourites %}
+            <div class="RBox">
+                <img class="RImage" src="http://localhost:9000/file/{{ phone['pic'] }}">
+                <div class="RData">
+                    <div class="PNamePr">{{ phone["nameFA"] }}</div>
+                    <div class="PNameEn">{{ phone["nameEN"] }}</div>
+                    <div class="price">{{ phone["best_price"] }} ريال</div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    
+
+    <div class="FBTitle title">برند های محبوب</div>
+    <div id="famousBrandContainer">
+        <div class="FBRow" onclick="openSearchBar()">
+            <div class="FBContainer">
+                <img class="FBIcon" src="{{url_for('static', filename='pics/samsung.jpg')}}">
+                <div class="FBName">سامسونگ</div>
+            </div>
+            <svg class="FBSearchIcon" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M796-121 533-384q-30 26-69.959 40.5T378-329q-108.162 0-183.081-75Q120-479 120-585t75-181q75-75 181.5-75t181 75Q632-691 632-584.85 632-542 618-502q-14 40-42 75l264 262-44 44ZM377-389q81.25 0 138.125-57.5T572-585q0-81-56.875-138.5T377-781q-82.083 0-139.542 57.5Q180-666 180-585t57.458 138.5Q294.917-389 377-389Z"/></svg>
+        </div>
+        <div class="FBRow" onclick="openSearchBar()">
+            <div class="FBContainer">
+                <img class="FBIcon" src="{{url_for('static', filename='pics/apple.jpg')}}">
+                <div class="FBName">اپل</div>
+            </div>
+            <svg class="FBSearchIcon" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M796-121 533-384q-30 26-69.959 40.5T378-329q-108.162 0-183.081-75Q120-479 120-585t75-181q75-75 181.5-75t181 75Q632-691 632-584.85 632-542 618-502q-14 40-42 75l264 262-44 44ZM377-389q81.25 0 138.125-57.5T572-585q0-81-56.875-138.5T377-781q-82.083 0-139.542 57.5Q180-666 180-585t57.458 138.5Q294.917-389 377-389Z"/></svg>
+        </div>
+        <div class="FBRow" onclick="openSearchBar()">
+            <div class="FBContainer">
+                <img class="FBIcon" src="{{url_for('static', filename='pics/google.jpg')}}">
+                <div class="FBName">گوگل</div>
+            </div>
+            <svg class="FBSearchIcon" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M796-121 533-384q-30 26-69.959 40.5T378-329q-108.162 0-183.081-75Q120-479 120-585t75-181q75-75 181.5-75t181 75Q632-691 632-584.85 632-542 618-502q-14 40-42 75l264 262-44 44ZM377-389q81.25 0 138.125-57.5T572-585q0-81-56.875-138.5T377-781q-82.083 0-139.542 57.5Q180-666 180-585t57.458 138.5Q294.917-389 377-389Z"/></svg>
+        </div>
+        <div class="FBRow" onclick="openSearchBar()">
+            <div class="FBContainer">
+                <img class="FBIcon" src="{{url_for('static', filename='pics/xiaomi.jpg')}}">
+                <div class="FBName">شیاومی</div>
+            </div>
+            <svg class="FBSearchIcon" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M796-121 533-384q-30 26-69.959 40.5T378-329q-108.162 0-183.081-75Q120-479 120-585t75-181q75-75 181.5-75t181 75Q632-691 632-584.85 632-542 618-502q-14 40-42 75l264 262-44 44ZM377-389q81.25 0 138.125-57.5T572-585q0-81-56.875-138.5T377-781q-82.083 0-139.542 57.5Q180-666 180-585t57.458 138.5Q294.917-389 377-389Z"/></svg>
+        </div>
+        <div id="FBExpand">
+            <div id="FBETitle">نمایش برند های بیشتر</div>
+            <svg id="FBEIcon" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M480-345 240-585l47.333-47.333L480-438.999l192.667-192.667L720-584.333 480-345Z"/></svg>
+        </div>
+    </div>
+</div>
+<div id="footer">
+    تمام حقوق برای تیم مولتیکس محفوظ است &copy;
+</div>
+</body>
+</html>

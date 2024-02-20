@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <title>Compare</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/compare.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/headerAndGeneral.css') }}">
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='/pics/logo.png') }}" />
+    <script src="{{ url_for('static', filename='js/compare.js') }}" defer></script>
+    <script src="{{ url_for('static', filename='js/toPersian.js') }}"></script>
+</head>
+<body>
+<div id="openSB"><!-- shortHand = O -->
+    <div id="OOptions">
+        <div class="OOption" id="OCExit" onclick="compareExit()">
+            <svg class="OOIcon" xmlns="http://www.w3.org/2000/svg" height="40" viewBox="0 -960 960 960" width="40"><path d="m251.333-204.667-46.666-46.666L433.334-480 204.667-708.667l46.666-46.666L480-526.666l228.667-228.667 46.666 46.666L526.666-480l228.667 228.667-46.666 46.666L480-433.334 251.333-204.667Z"/></svg>
+            <div class="OOTitle" id="OOCompareExit">
+                حذف و خروج از حالت مقایسه
+            </div>
+        </div>
+        <div class="OOption" id="OOAdvanced" onclick="OAShifter()">
+            <svg class="OOIcon" xmlns="http://www.w3.org/2000/svg" height="40" viewBox="0 -960 960 960" width="40"><path d="M834-122.667 630.667-325.834q-40.167 32-91.167 51.334-51 19.333-105.5 19.333-83.333 0-152.417-39.75Q212.5-334.667 171-400h79.333q34.667 37.667 81.833 59.583Q379.333-318.5 434-318.5q103.333 0 175.917-72.583Q682.5-463.667 682.5-566.667q0-103.333-72.583-175.917Q537.333-815.167 434-815.167q-99.5 0-171.167 68.417T186.166-580h-63.333q5-125 94.75-211.75T434-878.5q129.833 0 220.833 91t91 220.833q0 54.5-19.5 105.5T675.166-370L878-166.666l-44 43.999ZM400.167-403.333l-65-215.334L280.5-463.333h-198v-53.334h160.667l66-190H364.5l63.167 212 45.5-142h55.5l60 120h30.5v53.334h-63.5L506-562.667l-51.5 159.334h-54.333Z"/></svg>
+            <div class="OOTitle">
+                پیشرفته
+            </div>
+        </div>
+        <div class="OOption" id="OOAdvancedClose" onclick="OAShifter()">
+            <svg class="OOIcon" xmlns="http://www.w3.org/2000/svg" height="40" viewBox="0 -960 960 960" width="40"><path d="m251.333-204.667-46.666-46.666L433.334-480 204.667-708.667l46.666-46.666L480-526.666l228.667-228.667 46.666 46.666L526.666-480l228.667 228.667-46.666 46.666L480-433.334 251.333-204.667Z"/></svg>
+            <div class="OOTitle">
+                خروج از حالت پیشرفته
+            </div>
+        </div>
+        <div class="OOption" id="OCCheck" onclick="compareCheck()">
+            <svg class="OOIcon" xmlns="http://www.w3.org/2000/svg" height="40" viewBox="0 -960 960 960" width="40"><path d="M380-248 159.333-468.667l45.5-45.5L380-338.666 754.834-713.5 800-668 380-248Z"/></svg>
+            <div class="OOTitle" id="OOCheckTitle">
+                تایید و مقایسه
+            </div>
+        </div>
+    </div>
+    <div id="OContainer">
+        <div id="OResults">
+            <div id="ORecent">
+                <div class="searchTitle">جستجو های اخیر</div>
+                <div class="phoneModuleContainer">
+                    <div class="phoneModule" onclick="openPhone(this)">
+                        <div class="PMRight">
+                            <img class="PMImage" src="icons/S23UltraT.png">
+                            <div class="PMNames">
+                                <div class="PMNameFA PMName">سامسونگ گلکسی اس ۲۳ الترا</div>
+                                <div class="PMNameEN PMName">Samsung S23 Galaxy Ultra</div>
+                            </div>
+                        </div>
+                        <div class="PMLeft">
+                            <svg Class="PMLIcon PMLGo" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 -960 960 960"><path d="m560.5-243-238-238 238-238 41 41.5L405-481l196.5 196.5-41 41.5Z"/></svg>
+                            <svg Class="PMLIcon PMLCompare" onclick="addPhoneCompare()" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 -960 960 960"><path d="M424.5-45v-79.5H182q-22.969 0-40.234-17.266Q124.5-159.031 124.5-182v-596q0-22.969 17.266-40.234Q159.031-835.5 182-835.5h242.5V-915H482v870h-57.5ZM182-224h242.5v-277.5L182-224Zm357.5 99.5V-497L778-224v-554H539.5v-57.5H778q22.969 0 40.234 17.266Q835.5-800.969 835.5-778v596q0 22.969-17.266 40.234Q800.969-124.5 778-124.5H539.5Z"/></svg>
+                            <svg Class="PMLIcon PMLAdd" onclick="addPhoneCompare()" xmlns="http://www.w3.org/2000/svg" height="40" viewBox="0 -960 960 960" width="40"><path d="M450-450.5H206.667v-60H450v-243.333h60V-510.5h243.333v60H510v243.333h-60V-450.5Z"/></svg>
+                        </div>
+                    </div>
+                    <div class="phoneModule" onclick="openPhone(this)">
+                        <div class="PMRight">
+                            <img class="PMImage" src="icons/S23UltraT.png">
+                            <div class="PMNames">
+                                <div class="PMNameFA PMName">سامسونگ گلکسی اس ۲۳ الترا</div>
+                                <div class="PMNameEN PMName">Samsung S23 Galaxy Ultra</div>
+                            </div>
+                        </div>
+                        <div class="PMLeft">
+                            <svg Class="PMLIcon PMLGo" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 -960 960 960"><path d="m560.5-243-238-238 238-238 41 41.5L405-481l196.5 196.5-41 41.5Z"/></svg>
+                            <svg Class="PMLIcon PMLCompare" onclick="addPhoneCompare()" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 -960 960 960"><path d="M424.5-45v-79.5H182q-22.969 0-40.234-17.266Q124.5-159.031 124.5-182v-596q0-22.969 17.266-40.234Q159.031-835.5 182-835.5h242.5V-915H482v870h-57.5ZM182-224h242.5v-277.5L182-224Zm357.5 99.5V-497L778-224v-554H539.5v-57.5H778q22.969 0 40.234 17.266Q835.5-800.969 835.5-778v596q0 22.969-17.266 40.234Q800.969-124.5 778-124.5H539.5Z"/></svg>
+                            <svg Class="PMLIcon PMLAdd" onclick="addPhoneCompare()" xmlns="http://www.w3.org/2000/svg" height="40" viewBox="0 -960 960 960" width="40"><path d="M450-450.5H206.667v-60H450v-243.333h60V-510.5h243.333v60H510v243.333h-60V-450.5Z"/></svg>
+                        </div>
+                    </div>
+                    <div class="phoneModule">
+                        <div class="PMRight">
+                            <img class="PMImage" src="icons/S23UltraT.png">
+                            <div class="PMNames">
+                                <div class="PMNameFA PMName">سامسونگ گلکسی اس ۲۳ الترا</div>
+                                <div class="PMNameEN PMName">Samsung S23 Galaxy Ultra</div>
+                            </div>
+                        </div>
+                        <div class="PMLeft">
+                            <svg Class="PMLIcon" id="PMLGo" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 -960 960 960"><path d="m560.5-243-238-238 238-238 41 41.5L405-481l196.5 196.5-41 41.5Z"/></svg>
+                            <svg Class="PMLIcon" id="PMLCompare" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 -960 960 960"><path d="M424.5-45v-79.5H182q-22.969 0-40.234-17.266Q124.5-159.031 124.5-182v-596q0-22.969 17.266-40.234Q159.031-835.5 182-835.5h242.5V-915H482v870h-57.5ZM182-224h242.5v-277.5L182-224Zm357.5 99.5V-497L778-224v-554H539.5v-57.5H778q22.969 0 40.234 17.266Q835.5-800.969 835.5-778v596q0 22.969-17.266 40.234Q800.969-124.5 778-124.5H539.5Z"/></svg>
+                            <svg Class="PMLIcon" id="PMLAdd" xmlns="http://www.w3.org/2000/svg" height="40" viewBox="0 -960 960 960" width="40"><path d="M450-450.5H206.667v-60H450v-243.333h60V-510.5h243.333v60H510v243.333h-60V-450.5Z"/></svg>
+                        </div>
+                    </div>
+                    <div class="phoneModule">
+                        <div class="PMRight">
+                            <img class="PMImage" src="icons/S23UltraT.png">
+                            <div class="PMNames">
+                                <div class="PMNameFA PMName">سامسونگ گلکسی اس ۲۳ الترا</div>
+                                <div class="PMNameEN PMName">Samsung S23 Galaxy Ultra</div>
+                            </div>
+                        </div>
+                        <div class="PMLeft">
+                            <svg Class="PMLIcon" id="PMLGo" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 -960 960 960"><path d="m560.5-243-238-238 238-238 41 41.5L405-481l196.5 196.5-41 41.5Z"/></svg>
+                            <svg Class="PMLIcon" id="PMLCompare" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 -960 960 960"><path d="M424.5-45v-79.5H182q-22.969 0-40.234-17.266Q124.5-159.031 124.5-182v-596q0-22.969 17.266-40.234Q159.031-835.5 182-835.5h242.5V-915H482v870h-57.5ZM182-224h242.5v-277.5L182-224Zm357.5 99.5V-497L778-224v-554H539.5v-57.5H778q22.969 0 40.234 17.266Q835.5-800.969 835.5-778v596q0 22.969-17.266 40.234Q800.969-124.5 778-124.5H539.5Z"/></svg>
+                            <svg Class="PMLIcon" id="PMLAdd" xmlns="http://www.w3.org/2000/svg" height="40" viewBox="0 -960 960 960" width="40"><path d="M450-450.5H206.667v-60H450v-243.333h60V-510.5h243.333v60H510v243.333h-60V-450.5Z"/></svg>
+                        </div>
+                    </div>
+                    <div class="phoneModule">
+                        <div class="PMRight">
+                            <img class="PMImage" src="icons/S23UltraT.png">
+                            <div class="PMNames">
+                                <div class="PMNameFA PMName">سامسونگ گلکسی اس ۲۳ الترا</div>
+                                <div class="PMNameEN PMName">Samsung S23 Galaxy Ultra</div>
+                            </div>
+                        </div>
+                        <div class="PMLeft">
+                            <svg Class="PMLIcon" id="PMLGo" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 -960 960 960"><path d="m560.5-243-238-238 238-238 41 41.5L405-481l196.5 196.5-41 41.5Z"/></svg>
+                            <svg Class="PMLIcon" id="PMLCompare" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 -960 960 960"><path d="M424.5-45v-79.5H182q-22.969 0-40.234-17.266Q124.5-159.031 124.5-182v-596q0-22.969 17.266-40.234Q159.031-835.5 182-835.5h242.5V-915H482v870h-57.5ZM182-224h242.5v-277.5L182-224Zm357.5 99.5V-497L778-224v-554H539.5v-57.5H778q22.969 0 40.234 17.266Q835.5-800.969 835.5-778v596q0 22.969-17.266 40.234Q800.969-124.5 778-124.5H539.5Z"/></svg>
+                            <svg Class="PMLIcon" id="PMLAdd" xmlns="http://www.w3.org/2000/svg" height="40" viewBox="0 -960 960 960" width="40"><path d="M450-450.5H206.667v-60H450v-243.333h60V-510.5h243.333v60H510v243.333h-60V-450.5Z"/></svg>
+                        </div>
+                    </div>
+                    <div class="phoneModule">
+                        <div class="PMRight">
+                            <img class="PMImage" src="icons/S23UltraT.png">
+                            <div class="PMNames">
+                                <div class="PMNameFA PMName">سامسونگ گلکسی اس ۲۳ الترا</div>
+                                <div class="PMNameEN PMName">Samsung S23 Galaxy Ultra</div>
+                            </div>
+                        </div>
+                        <div class="PMLeft">
+                            <svg Class="PMLIcon" id="PMLGo" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 -960 960 960"><path d="m560.5-243-238-238 238-238 41 41.5L405-481l196.5 196.5-41 41.5Z"/></svg>
+                            <svg Class="PMLIcon" id="PMLCompare" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 -960 960 960"><path d="M424.5-45v-79.5H182q-22.969 0-40.234-17.266Q124.5-159.031 124.5-182v-596q0-22.969 17.266-40.234Q159.031-835.5 182-835.5h242.5V-915H482v870h-57.5ZM182-224h242.5v-277.5L182-224Zm357.5 99.5V-497L778-224v-554H539.5v-57.5H778q22.969 0 40.234 17.266Q835.5-800.969 835.5-778v596q0 22.969-17.266 40.234Q800.969-124.5 778-124.5H539.5Z"/></svg>
+                            <svg Class="PMLIcon" id="PMLAdd" xmlns="http://www.w3.org/2000/svg" height="40" viewBox="0 -960 960 960" width="40"><path d="M450-450.5H206.667v-60H450v-243.333h60V-510.5h243.333v60H510v243.333h-60V-450.5Z"/></svg>
+                        </div>
+                    </div>
+                    <div class="phoneModule">
+                        <div class="PMRight">
+                            <img class="PMImage" src="icons/S23UltraT.png">
+                            <div class="PMNames">
+                                <div class="PMNameFA PMName">سامسونگ گلکسی اس ۲۳ الترا</div>
+                                <div class="PMNameEN PMName">Samsung S23 Galaxy Ultra</div>
+                            </div>
+                        </div>
+                        <div class="PMLeft">
+                            <svg Class="PMLIcon" id="PMLGo" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 -960 960 960"><path d="m560.5-243-238-238 238-238 41 41.5L405-481l196.5 196.5-41 41.5Z"/></svg>
+                            <svg Class="PMLIcon" id="PMLCompare" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 -960 960 960"><path d="M424.5-45v-79.5H182q-22.969 0-40.234-17.266Q124.5-159.031 124.5-182v-596q0-22.969 17.266-40.234Q159.031-835.5 182-835.5h242.5V-915H482v870h-57.5ZM182-224h242.5v-277.5L182-224Zm357.5 99.5V-497L778-224v-554H539.5v-57.5H778q22.969 0 40.234 17.266Q835.5-800.969 835.5-778v596q0 22.969-17.266 40.234Q800.969-124.5 778-124.5H539.5Z"/></svg>
+                            <svg Class="PMLIcon" id="PMLAdd" xmlns="http://www.w3.org/2000/svg" height="40" viewBox="0 -960 960 960" width="40"><path d="M450-450.5H206.667v-60H450v-243.333h60V-510.5h243.333v60H510v243.333h-60V-450.5Z"/></svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="OSearch">
+                <div class="searchTitle">نتایج جستجو</div>
+                <div class="phoneModuleContainer">
+                    <div class="phoneModule">
+                        <div class="PMRight">
+                            <img class="PMImage" src="icons/S23UltraT.png">
+                            <div class="PMNames">
+                                <div class="PMNameFA PMName">سامسونگ گلکسی اس ۲۳ الترا</div>
+                                <div class="PMNameEN PMName">Samsung S23 Galaxy Ultra</div>
+                            </div>
+                        </div>
+                        <div class="PMLeft">
+                            <svg Class="PMLIcon" id="PMLGo" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 -960 960 960"><path d="m560.5-243-238-238 238-238 41 41.5L405-481l196.5 196.5-41 41.5Z"/></svg>
+                            <svg Class="PMLIcon" id="PMLCompare" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 -960 960 960"><path d="M424.5-45v-79.5H182q-22.969 0-40.234-17.266Q124.5-159.031 124.5-182v-596q0-22.969 17.266-40.234Q159.031-835.5 182-835.5h242.5V-915H482v870h-57.5ZM182-224h242.5v-277.5L182-224Zm357.5 99.5V-497L778-224v-554H539.5v-57.5H778q22.969 0 40.234 17.266Q835.5-800.969 835.5-778v596q0 22.969-17.266 40.234Q800.969-124.5 778-124.5H539.5Z"/></svg>
+                            <svg Class="PMLIcon" id="PMLAdd" xmlns="http://www.w3.org/2000/svg" height="40" viewBox="0 -960 960 960" width="40"><path d="M450-450.5H206.667v-60H450v-243.333h60V-510.5h243.333v60H510v243.333h-60V-450.5Z"/></svg>
+                        </div>
+                    </div>
+                    <div class="phoneModule">
+                        <div class="PMRight">
+                            <img class="PMImage" src="icons/S23UltraT.png">
+                            <div class="PMNames">
+                                <div class="PMNameFA PMName">سامسونگ گلکسی اس ۲۳ الترا</div>
+                                <div class="PMNameEN PMName">Samsung S23 Galaxy Ultra</div>
+                            </div>
+                        </div>
+                        <div class="PMLeft">
+                            <svg Class="PMLIcon" id="PMLGo" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 -960 960 960"><path d="m560.5-243-238-238 238-238 41 41.5L405-481l196.5 196.5-41 41.5Z"/></svg>
+                            <svg Class="PMLIcon" id="PMLCompare" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 -960 960 960"><path d="M424.5-45v-79.5H182q-22.969 0-40.234-17.266Q124.5-159.031 124.5-182v-596q0-22.969 17.266-40.234Q159.031-835.5 182-835.5h242.5V-915H482v870h-57.5ZM182-224h242.5v-277.5L182-224Zm357.5 99.5V-497L778-224v-554H539.5v-57.5H778q22.969 0 40.234 17.266Q835.5-800.969 835.5-778v596q0 22.969-17.266 40.234Q800.969-124.5 778-124.5H539.5Z"/></svg>
+                            <svg Class="PMLIcon" id="PMLAdd" xmlns="http://www.w3.org/2000/svg" height="40" viewBox="0 -960 960 960" width="40"><path d="M450-450.5H206.667v-60H450v-243.333h60V-510.5h243.333v60H510v243.333h-60V-450.5Z"/></svg>
+                        </div>
+                    </div>
+                    <div class="phoneModule">
+                        <div class="PMRight">
+                            <img class="PMImage" src="icons/S23UltraT.png">
+                            <div class="PMNames">
+                                <div class="PMNameFA PMName">سامسونگ گلکسی اس ۲۳ الترا</div>
+                                <div class="PMNameEN PMName">Samsung S23 Galaxy Ultra</div>
+                            </div>
+                        </div>
+                        <div class="PMLeft">
+                            <svg Class="PMLIcon" id="PMLGo" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 -960 960 960"><path d="m560.5-243-238-238 238-238 41 41.5L405-481l196.5 196.5-41 41.5Z"/></svg>
+                            <svg Class="PMLIcon" id="PMLCompare" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 -960 960 960"><path d="M424.5-45v-79.5H182q-22.969 0-40.234-17.266Q124.5-159.031 124.5-182v-596q0-22.969 17.266-40.234Q159.031-835.5 182-835.5h242.5V-915H482v870h-57.5ZM182-224h242.5v-277.5L182-224Zm357.5 99.5V-497L778-224v-554H539.5v-57.5H778q22.969 0 40.234 17.266Q835.5-800.969 835.5-778v596q0 22.969-17.266 40.234Q800.969-124.5 778-124.5H539.5Z"/></svg>
+                            <svg Class="PMLIcon" id="PMLAdd" xmlns="http://www.w3.org/2000/svg" height="40" viewBox="0 -960 960 960" width="40"><path d="M450-450.5H206.667v-60H450v-243.333h60V-510.5h243.333v60H510v243.333h-60V-450.5Z"/></svg>
+                        </div>
+                    </div>
+                    <div class="phoneModule">
+                        <div class="PMRight">
+                            <img class="PMImage" src="icons/S23UltraT.png">
+                            <div class="PMNames">
+                                <div class="PMNameFA PMName">سامسونگ گلکسی اس ۲۳ الترا</div>
+                                <div class="PMNameEN PMName">Samsung S23 Galaxy Ultra</div>
+                            </div>
+                        </div>
+                        <div class="PMLeft">
+                            <svg Class="PMLIcon" id="PMLGo" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 -960 960 960"><path d="m560.5-243-238-238 238-238 41 41.5L405-481l196.5 196.5-41 41.5Z"/></svg>
+                            <svg Class="PMLIcon" id="PMLCompare" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 -960 960 960"><path d="M424.5-45v-79.5H182q-22.969 0-40.234-17.266Q124.5-159.031 124.5-182v-596q0-22.969 17.266-40.234Q159.031-835.5 182-835.5h242.5V-915H482v870h-57.5ZM182-224h242.5v-277.5L182-224Zm357.5 99.5V-497L778-224v-554H539.5v-57.5H778q22.969 0 40.234 17.266Q835.5-800.969 835.5-778v596q0 22.969-17.266 40.234Q800.969-124.5 778-124.5H539.5Z"/></svg>
+                            <svg Class="PMLIcon" id="PMLAdd" xmlns="http://www.w3.org/2000/svg" height="40" viewBox="0 -960 960 960" width="40"><path d="M450-450.5H206.667v-60H450v-243.333h60V-510.5h243.333v60H510v243.333h-60V-450.5Z"/></svg>
+                        </div>
+                    </div>
+                    <div class="phoneModule">
+                        <div class="PMRight">
+                            <img class="PMImage" src="icons/S23UltraT.png">
+                            <div class="PMNames">
+                                <div class="PMNameFA PMName">سامسونگ گلکسی اس ۲۳ الترا</div>
+                                <div class="PMNameEN PMName">Samsung S23 Galaxy Ultra</div>
+                            </div>
+                        </div>
+                        <div class="PMLeft">
+                            <svg Class="PMLIcon" id="PMLGo" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 -960 960 960"><path d="m560.5-243-238-238 238-238 41 41.5L405-481l196.5 196.5-41 41.5Z"/></svg>
+                            <svg Class="PMLIcon" id="PMLCompare" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 -960 960 960"><path d="M424.5-45v-79.5H182q-22.969 0-40.234-17.266Q124.5-159.031 124.5-182v-596q0-22.969 17.266-40.234Q159.031-835.5 182-835.5h242.5V-915H482v870h-57.5ZM182-224h242.5v-277.5L182-224Zm357.5 99.5V-497L778-224v-554H539.5v-57.5H778q22.969 0 40.234 17.266Q835.5-800.969 835.5-778v596q0 22.969-17.266 40.234Q800.969-124.5 778-124.5H539.5Z"/></svg>
+                            <svg Class="PMLIcon" id="PMLAdd" xmlns="http://www.w3.org/2000/svg" height="40" viewBox="0 -960 960 960" width="40"><path d="M450-450.5H206.667v-60H450v-243.333h60V-510.5h243.333v60H510v243.333h-60V-450.5Z"/></svg>
+                        </div>
+                    </div>
+                    <div class="phoneModule">
+                        <div class="PMRight">
+                            <img class="PMImage" src="icons/S23UltraT.png">
+                            <div class="PMNames">
+                                <div class="PMNameFA PMName">سامسونگ گلکسی اس ۲۳ الترا</div>
+                                <div class="PMNameEN PMName">Samsung S23 Galaxy Ultra</div>
+                            </div>
+                        </div>
+                        <div class="PMLeft">
+                            <svg Class="PMLIcon" id="PMLGo" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 -960 960 960"><path d="m560.5-243-238-238 238-238 41 41.5L405-481l196.5 196.5-41 41.5Z"/></svg>
+                            <svg Class="PMLIcon" id="PMLCompare" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 -960 960 960"><path d="M424.5-45v-79.5H182q-22.969 0-40.234-17.266Q124.5-159.031 124.5-182v-596q0-22.969 17.266-40.234Q159.031-835.5 182-835.5h242.5V-915H482v870h-57.5ZM182-224h242.5v-277.5L182-224Zm357.5 99.5V-497L778-224v-554H539.5v-57.5H778q22.969 0 40.234 17.266Q835.5-800.969 835.5-778v596q0 22.969-17.266 40.234Q800.969-124.5 778-124.5H539.5Z"/></svg>
+                            <svg Class="PMLIcon" id="PMLAdd" xmlns="http://www.w3.org/2000/svg" height="40" viewBox="0 -960 960 960" width="40"><path d="M450-450.5H206.667v-60H450v-243.333h60V-510.5h243.333v60H510v243.333h-60V-450.5Z"/></svg>
+                        </div>
+                    </div>
+                    <div class="phoneModule">
+                        <div class="PMRight">
+                            <img class="PMImage" src="icons/S23UltraT.png">
+                            <div class="PMNames">
+                                <div class="PMNameFA PMName">سامسونگ گلکسی اس ۲۳ الترا</div>
+                                <div class="PMNameEN PMName">Samsung S23 Galaxy Ultra</div>
+                            </div>
+                        </div>
+                        <div class="PMLeft">
+                            <svg Class="PMLIcon" id="PMLGo" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 -960 960 960"><path d="m560.5-243-238-238 238-238 41 41.5L405-481l196.5 196.5-41 41.5Z"/></svg>
+                            <svg Class="PMLIcon" id="PMLCompare" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 -960 960 960"><path d="M424.5-45v-79.5H182q-22.969 0-40.234-17.266Q124.5-159.031 124.5-182v-596q0-22.969 17.266-40.234Q159.031-835.5 182-835.5h242.5V-915H482v870h-57.5ZM182-224h242.5v-277.5L182-224Zm357.5 99.5V-497L778-224v-554H539.5v-57.5H778q22.969 0 40.234 17.266Q835.5-800.969 835.5-778v596q0 22.969-17.266 40.234Q800.969-124.5 778-124.5H539.5Z"/></svg>
+                            <svg Class="PMLIcon" id="PMLAdd" xmlns="http://www.w3.org/2000/svg" height="40" viewBox="0 -960 960 960" width="40"><path d="M450-450.5H206.667v-60H450v-243.333h60V-510.5h243.333v60H510v243.333h-60V-450.5Z"/></svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="ORecomended">
+                <div class="searchTitle">موبایل های پیشنهادی</div>
+                <div class="phoneModuleContainer">
+                    <div class="phoneModule">
+                        <div class="PMRight">
+                            <img class="PMImage" src="icons/S23UltraT.png">
+                            <div class="PMNames">
+                                <div class="PMNameFA PMName">سامسونگ گلکسی اس ۲۳ الترا</div>
+                                <div class="PMNameEN PMName">Samsung S23 Galaxy Ultra</div>
+                            </div>
+                        </div>
+                        <div class="PMLeft">
+                            <svg Class="PMLIcon" id="PMLGo" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 -960 960 960"><path d="m560.5-243-238-238 238-238 41 41.5L405-481l196.5 196.5-41 41.5Z"/></svg>
+                            <svg Class="PMLIcon" id="PMLCompare" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 -960 960 960"><path d="M424.5-45v-79.5H182q-22.969 0-40.234-17.266Q124.5-159.031 124.5-182v-596q0-22.969 17.266-40.234Q159.031-835.5 182-835.5h242.5V-915H482v870h-57.5ZM182-224h242.5v-277.5L182-224Zm357.5 99.5V-497L778-224v-554H539.5v-57.5H778q22.969 0 40.234 17.266Q835.5-800.969 835.5-778v596q0 22.969-17.266 40.234Q800.969-124.5 778-124.5H539.5Z"/></svg>
+                            <svg Class="PMLIcon" id="PMLAdd" xmlns="http://www.w3.org/2000/svg" height="40" viewBox="0 -960 960 960" width="40"><path d="M450-450.5H206.667v-60H450v-243.333h60V-510.5h243.333v60H510v243.333h-60V-450.5Z"/></svg>
+                        </div>
+                    </div>
+                    <div class="phoneModule">
+                        <div class="PMRight">
+                            <img class="PMImage" src="icons/S23UltraT.png">
+                            <div class="PMNames">
+                                <div class="PMNameFA PMName">سامسونگ گلکسی اس ۲۳ الترا</div>
+                                <div class="PMNameEN PMName">Samsung S23 Galaxy Ultra</div>
+                            </div>
+                        </div>
+                        <div class="PMLeft">
+                            <svg Class="PMLIcon" id="PMLGo" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 -960 960 960"><path d="m560.5-243-238-238 238-238 41 41.5L405-481l196.5 196.5-41 41.5Z"/></svg>
+                            <svg Class="PMLIcon" id="PMLCompare" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 -960 960 960"><path d="M424.5-45v-79.5H182q-22.969 0-40.234-17.266Q124.5-159.031 124.5-182v-596q0-22.969 17.266-40.234Q159.031-835.5 182-835.5h242.5V-915H482v870h-57.5ZM182-224h242.5v-277.5L182-224Zm357.5 99.5V-497L778-224v-554H539.5v-57.5H778q22.969 0 40.234 17.266Q835.5-800.969 835.5-778v596q0 22.969-17.266 40.234Q800.969-124.5 778-124.5H539.5Z"/></svg>
+                            <svg Class="PMLIcon" id="PMLAdd" xmlns="http://www.w3.org/2000/svg" height="40" viewBox="0 -960 960 960" width="40"><path d="M450-450.5H206.667v-60H450v-243.333h60V-510.5h243.333v60H510v243.333h-60V-450.5Z"/></svg>
+                        </div>
+                    </div>
+                    <div class="phoneModule">
+                        <div class="PMRight">
+                            <img class="PMImage" src="icons/S23UltraT.png">
+                            <div class="PMNames">
+                                <div class="PMNameFA PMName">سامسونگ گلکسی اس ۲۳ الترا</div>
+                                <div class="PMNameEN PMName">Samsung S23 Galaxy Ultra</div>
+                            </div>
+                        </div>
+                        <div class="PMLeft">
+                            <svg Class="PMLIcon" id="PMLGo" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 -960 960 960"><path d="m560.5-243-238-238 238-238 41 41.5L405-481l196.5 196.5-41 41.5Z"/></svg>
+                            <svg Class="PMLIcon" id="PMLCompare" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 -960 960 960"><path d="M424.5-45v-79.5H182q-22.969 0-40.234-17.266Q124.5-159.031 124.5-182v-596q0-22.969 17.266-40.234Q159.031-835.5 182-835.5h242.5V-915H482v870h-57.5ZM182-224h242.5v-277.5L182-224Zm357.5 99.5V-497L778-224v-554H539.5v-57.5H778q22.969 0 40.234 17.266Q835.5-800.969 835.5-778v596q0 22.969-17.266 40.234Q800.969-124.5 778-124.5H539.5Z"/></svg>
+                            <svg Class="PMLIcon" id="PMLAdd" xmlns="http://www.w3.org/2000/svg" height="40" viewBox="0 -960 960 960" width="40"><path d="M450-450.5H206.667v-60H450v-243.333h60V-510.5h243.333v60H510v243.333h-60V-450.5Z"/></svg>
+                        </div>
+                    </div>
+                    <div class="phoneModule">
+                        <div class="PMRight">
+                            <img class="PMImage" src="icons/S23UltraT.png">
+                            <div class="PMNames">
+                                <div class="PMNameFA PMName">سامسونگ گلکسی اس ۲۳ الترا</div>
+                                <div class="PMNameEN PMName">Samsung S23 Galaxy Ultra</div>
+                            </div>
+                        </div>
+                        <div class="PMLeft">
+                            <svg Class="PMLIcon" id="PMLGo" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 -960 960 960"><path d="m560.5-243-238-238 238-238 41 41.5L405-481l196.5 196.5-41 41.5Z"/></svg>
+                            <svg Class="PMLIcon" id="PMLCompare" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 -960 960 960"><path d="M424.5-45v-79.5H182q-22.969 0-40.234-17.266Q124.5-159.031 124.5-182v-596q0-22.969 17.266-40.234Q159.031-835.5 182-835.5h242.5V-915H482v870h-57.5ZM182-224h242.5v-277.5L182-224Zm357.5 99.5V-497L778-224v-554H539.5v-57.5H778q22.969 0 40.234 17.266Q835.5-800.969 835.5-778v596q0 22.969-17.266 40.234Q800.969-124.5 778-124.5H539.5Z"/></svg>
+                            <svg Class="PMLIcon" id="PMLAdd" xmlns="http://www.w3.org/2000/svg" height="40" viewBox="0 -960 960 960" width="40"><path d="M450-450.5H206.667v-60H450v-243.333h60V-510.5h243.333v60H510v243.333h-60V-450.5Z"/></svg>
+                        </div>
+                    </div>
+                    <div class="phoneModule">
+                        <div class="PMRight">
+                            <img class="PMImage" src="icons/S23UltraT.png">
+                            <div class="PMNames">
+                                <div class="PMNameFA PMName">سامسونگ گلکسی اس ۲۳ الترا</div>
+                                <div class="PMNameEN PMName">Samsung S23 Galaxy Ultra</div>
+                            </div>
+                        </div>
+                        <div class="PMLeft">
+                            <svg Class="PMLIcon" id="PMLGo" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 -960 960 960"><path d="m560.5-243-238-238 238-238 41 41.5L405-481l196.5 196.5-41 41.5Z"/></svg>
+                            <svg Class="PMLIcon" id="PMLCompare" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 -960 960 960"><path d="M424.5-45v-79.5H182q-22.969 0-40.234-17.266Q124.5-159.031 124.5-182v-596q0-22.969 17.266-40.234Q159.031-835.5 182-835.5h242.5V-915H482v870h-57.5ZM182-224h242.5v-277.5L182-224Zm357.5 99.5V-497L778-224v-554H539.5v-57.5H778q22.969 0 40.234 17.266Q835.5-800.969 835.5-778v596q0 22.969-17.266 40.234Q800.969-124.5 778-124.5H539.5Z"/></svg>
+                            <svg Class="PMLIcon" id="PMLAdd" xmlns="http://www.w3.org/2000/svg" height="40" viewBox="0 -960 960 960" width="40"><path d="M450-450.5H206.667v-60H450v-243.333h60V-510.5h243.333v60H510v243.333h-60V-450.5Z"/></svg>
+                        </div>
+                    </div>
+                    <div class="phoneModule">
+                        <div class="PMRight">
+                            <img class="PMImage" src="icons/S23UltraT.png">
+                            <div class="PMNames">
+                                <div class="PMNameFA PMName">سامسونگ گلکسی اس ۲۳ الترا</div>
+                                <div class="PMNameEN PMName">Samsung S23 Galaxy Ultra</div>
+                            </div>
+                        </div>
+                        <div class="PMLeft">
+                            <svg Class="PMLIcon" id="PMLGo" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 -960 960 960"><path d="m560.5-243-238-238 238-238 41 41.5L405-481l196.5 196.5-41 41.5Z"/></svg>
+                            <svg Class="PMLIcon" id="PMLCompare" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 -960 960 960"><path d="M424.5-45v-79.5H182q-22.969 0-40.234-17.266Q124.5-159.031 124.5-182v-596q0-22.969 17.266-40.234Q159.031-835.5 182-835.5h242.5V-915H482v870h-57.5ZM182-224h242.5v-277.5L182-224Zm357.5 99.5V-497L778-224v-554H539.5v-57.5H778q22.969 0 40.234 17.266Q835.5-800.969 835.5-778v596q0 22.969-17.266 40.234Q800.969-124.5 778-124.5H539.5Z"/></svg>
+                            <svg Class="PMLIcon" id="PMLAdd" xmlns="http://www.w3.org/2000/svg" height="40" viewBox="0 -960 960 960" width="40"><path d="M450-450.5H206.667v-60H450v-243.333h60V-510.5h243.333v60H510v243.333h-60V-450.5Z"/></svg>
+                        </div>
+                    </div>
+                    <div class="phoneModule">
+                        <div class="PMRight">
+                            <img class="PMImage" src="icons/S23UltraT.png">
+                            <div class="PMNames">
+                                <div class="PMNameFA PMName">سامسونگ گلکسی اس ۲۳ الترا</div>
+                                <div class="PMNameEN PMName">Samsung S23 Galaxy Ultra</div>
+                            </div>
+                        </div>
+                        <div class="PMLeft">
+                            <svg Class="PMLIcon" id="PMLGo" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 -960 960 960"><path d="m560.5-243-238-238 238-238 41 41.5L405-481l196.5 196.5-41 41.5Z"/></svg>
+                            <svg Class="PMLIcon" id="PMLCompare" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 -960 960 960"><path d="M424.5-45v-79.5H182q-22.969 0-40.234-17.266Q124.5-159.031 124.5-182v-596q0-22.969 17.266-40.234Q159.031-835.5 182-835.5h242.5V-915H482v870h-57.5ZM182-224h242.5v-277.5L182-224Zm357.5 99.5V-497L778-224v-554H539.5v-57.5H778q22.969 0 40.234 17.266Q835.5-800.969 835.5-778v596q0 22.969-17.266 40.234Q800.969-124.5 778-124.5H539.5Z"/></svg>
+                            <svg Class="PMLIcon" id="PMLAdd" xmlns="http://www.w3.org/2000/svg" height="40" viewBox="0 -960 960 960" width="40"><path d="M450-450.5H206.667v-60H450v-243.333h60V-510.5h243.333v60H510v243.333h-60V-450.5Z"/></svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="OSelectedRight" class="OSelected">
+            <div class="searchTitle">
+                موبایل انتخاب شده
+            </div>
+            <div class="OSInfo">
+                <img class="OSIImage" src="icons/S23UltraT.png" alt="Samsung S23 Ultra">
+                <div class="OSIName">سامسونگ گلکسی اس ۲۳ الترا</div>
+                <div class="OSIName">Samsung Galaxy S23 Ultra</div>
+            </div>
+            <div class="OOptions OOBorderTop">
+                <div class="OOption" onclick="OSRemovePhone(this)">
+                    <svg class="OOIcon" xmlns="http://www.w3.org/2000/svg" height="40" viewBox="0 -960 960 960" width="40"><path d="M269.333-126.667q-26.125 0-44.729-18.604T206-190v-548.001h-40v-63.222h187.333v-32.11h254.001v31.999h187.333v63.333h-40V-190q0 25.625-18.854 44.479t-44.479 18.854H269.333Zm422.001-611.334H269.333V-190h422.001v-548.001ZM368-273.166h63.333v-382.668H368v382.668Zm161.334 0h63.333v-382.668h-63.333v382.668ZM269.333-738.001V-190v-548.001Z"/></svg>
+                    <div class="OOTitle">تغییر این موبایل</div>
+                </div>
+            </div>
+        </div>
+        <div id="OSelectedLeft" class="OSelected">
+            <div class="searchTitle">
+                موبایل انتخاب شده
+            </div>
+            <div class="OSInfo">
+                <img class="OSIImage" src="icons/S23UltraT.png" alt="Samsung S23 Ultra">
+                <div class="OSIName">سامسونگ گلکسی اس ۲۳ الترا</div>
+                <div class="OSIName">Samsung Galaxy S23 Ultra</div>
+            </div>
+            <div class="OOptions  OOBorderTop">
+                <div class="OOption" onclick="OSRemovePhone(this)">
+                    <svg class="OOIcon" xmlns="http://www.w3.org/2000/svg" height="40" viewBox="0 -960 960 960" width="40"><path d="M269.333-126.667q-26.125 0-44.729-18.604T206-190v-548.001h-40v-63.222h187.333v-32.11h254.001v31.999h187.333v63.333h-40V-190q0 25.625-18.854 44.479t-44.479 18.854H269.333Zm422.001-611.334H269.333V-190h422.001v-548.001ZM368-273.166h63.333v-382.668H368v382.668Zm161.334 0h63.333v-382.668h-63.333v382.668ZM269.333-738.001V-190v-548.001Z"/></svg>
+                    <div class="OOTitle">تغییر این موبایل</div>
+                </div>
+            </div>
+        </div>
+        <div id="OAdvanced">
+            <div class="searchTitle">مشخصات پیشرفته</div>
+            <div id="OAForm"><!-- shortHand : F-->
+                <div id="FPrice">
+                    <div class="FLable">قیمت: </div>
+                    <div id="FPriceOverview" onclick="openPriceSelector()">
+                        <div class="FPlaceHolder" id="FPPlaceHolder">انتخاب</div>
+                        <div class="FIcon" id="FPDownIcon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M480-345 240-585l47.333-47.333L480-438.999l192.667-192.667L720-584.333 480-345Z"/></svg></div>
+                        <div class="FIcon" id="FPDoneIcon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M380-248 159.333-468.667l45.5-45.5L380-338.666 754.834-713.5 800-668 380-248Z"/></svg></div>
+                        <div id="FPContainer">
+                            <div class="FPStart">
+                                <div class="FPLabel">حداقل: </div>
+                                <input type="number" class="FPInput" placeholder="۱۵,۰۰۰,۰۰۰">
+                                <div class="FPLabel">ریال</div>
+                            </div>
+                            <div class="FPStart">
+                                <div class="FPLabel">حداکثر: </div>
+                                <input type="number" class="FPInput" placeholder="۱۵۰,۰۰۰,۰۰۰">
+                                <div class="FPLabel">ریال</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="FSeries">
+                    <div class="FLable">رده: </div>
+                    <select name="FSSelector" id="FSSelector">
+                        <option value="flagship">پرچمدار</option>
+                        <option value="midrange">میان رده</option>
+                        <option value="budget">اقتصادی</option>
+                    </select>
+                </div>
+                <div id="FUserRating" class="FRating">
+                    <div class="FLable">امتیاز کاربران: </div>
+                    <div id="FUProgressBar" class="FProgressBar"></div>
+                </div>
+                <div id="FPoickRating" class="FRating">
+                    <div class="FLable">امتیاز ما: </div>
+                    <div id="FEProgressBar" class="FProgressBar"></div>
+                </div>
+                <div id="FDesign" class="FRating">
+                    <div class="FLable">طراحی: </div>
+                    <div id="FDProgressBar" class="FProgressBar"></div>
+                </div>
+                <div id="FCamera" class="FRating">
+                    <div class="FLable">دوربین: </div>
+                    <div id="FCProgressBar" class="FProgressBar"></div>
+                </div>
+                <div id="FScreen" class="FRating">
+                    <div class="FLable">صفحه نمایش: </div>
+                    <div id="FSProgressBar" class="FProgressBar"></div>
+                </div>
+                <div id="FProcessor" class="FRating">
+                    <div class="FLable">پردازشگر: </div>
+                    <div id="FPProgressBar" class="FProgressBar"></div>
+                </div>
+                <div id="FBattery" class="FRating">
+                    <div class="FLable">باطری: </div>
+                    <div id="FBProgressBar" class="FProgressBar"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="header" onmouseover="headerMouseOver()" onmouseout="headerMouseOut()">
+    <div id="poickTitle">
+        <img id="poickLogo" src="{{ url_for('static', filename='/pics/logo.png') }}" alt="Poick">
+        <div id="poickName">پویک</div>
+    </div>
+    <div id="searchBarContainer">
+        <div id="searchBar" onclick="openSearchBar()">
+            <svg id="SBIcon" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z"/></svg>
+            <div id="SBTitle">
+                ایجاد تغییرات و جستجو
+            </div>
+        </div>
+        <div id="searchBarText">
+            <input type="text" id="SBInput" placeholder="جستجو...">
+            <div id="SBIClose" onclick="SBClear()">
+                <svg xmlns="http://www.w3.org/2000/svg" height="30" viewBox="0 -960 960 960" width="30"><path d="m251.333-204.667-46.666-46.666L433.334-480 204.667-708.667l46.666-46.666L480-526.666l228.667-228.667 46.666 46.666L526.666-480l228.667 228.667-46.666 46.666L480-433.334 251.333-204.667Z"/></svg>
+            </div>
+        </div>
+    </div>
+    <div id="phoneHeader">
+        <div id="phoneHeader1">
+            <img class="phoneIcon" src="/icons/S23UltraT.png">
+            <div class="phoneName">سامسونگ اس 23 الترا</div>
+        </div>
+        <div id="phoneHeader2">
+            <img class="phoneIcon" src="/icons/S23UltraT.png">
+            <div class="phoneName">اپل ایفون 15 پرو مکس</div>
+        </div>
+    </div>
+    <div id="overallUseB">
+        <svg title="Login or sigh in" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M222-255q63-44 125-67.5T480-346q71 0 133.5 23.5T739-255q44-54 62.5-109T820-480q0-145-97.5-242.5T480-820q-145 0-242.5 97.5T140-480q0 61 19 116t63 109Zm257.814-195Q422-450 382.5-489.686q-39.5-39.686-39.5-97.5t39.686-97.314q39.686-39.5 97.5-39.5t97.314 39.686q39.5 39.686 39.5 97.5T577.314-489.5q-39.686 39.5-97.5 39.5Zm.654 370Q398-80 325-111.5q-73-31.5-127.5-86t-86-127.266Q80-397.532 80-480.266T111.5-635.5q31.5-72.5 86-127t127.266-86q72.766-31.5 155.5-31.5T635.5-848.5q72.5 31.5 127 86t86 127.032q31.5 72.532 31.5 155T848.5-325q-31.5 73-86 127.5t-127.032 86q-72.532 31.5-155 31.5ZM480-140q55 0 107.5-16T691-212q-51-36-104-55t-107-19q-54 0-107 19t-104 55q51 40 103.5 56T480-140Zm0-370q34 0 55.5-21.5T557-587q0-34-21.5-55.5T480-664q-34 0-55.5 21.5T403-587q0 34 21.5 55.5T480-510Zm0-77Zm0 374Z"/></svg>
+    </div>
+</div>
+<div id="bodyContainer">
+    <div id="overviewContainer">
+        <div id="overview1" class="overview">
+            <img class="overviewImg" src="http://localhost:9000/file/{{ phone_1['pic'] }}">
+            <div class="overviewInfo">
+                <div class="OINameFA">{{ phone_1["nameFA"]}}</div>
+                <div class="OINameEN">{{ phone_1["nameEN"]}}</div>
+                <a href="http://localhost:9000/phone/{{ phone_1['_id'] }}" class="OIPage">ورود به صفحه این موبایل</a>
+                <div onclick="openSearchBar();OSRemovePhone()" class="OIChange">تغییر این موبایل</div>
+            </div>
+        </div>
+        <div id="overview2" class="overview">
+            <img class="overviewImg" src="http://localhost:9000/file/{{ phone_2['pic'] }}">
+            <div class="overviewInfo">
+                <div class="OINameFA">{{ phone_2["nameFA"]}}</div>
+                <div class="OINameEN">{{ phone_2["nameEN"]}}</div> 
+                <a href="http://localhost:9000/phone/{{ phone_2['_id'] }}" class="OIPage">ورود به صفحه این موبایل</a>
+                <div onclick="openSearchBar();OSRemovePhone()" class="OIChange">تغییر این موبایل</div>
+            </div>
+        </div>
+    </div>
+    <div id="generalOverview">
+        <div class="title">نمای کلی</div>
+        <div id="GOContainer">
+            <div class="GORow">
+                <div class="GOKey">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="m407.795-199.385 242.179-290.359H480.231l32.384-255.82L294.59-430.256h146.179l-32.974 230.871Zm-64.716 97.076 40-277.692H198.08l329.613-475.766h49.228l-39.615 315.768h219.999l-364.998 437.69h-49.228Zm129.408-370.665Z"/></svg>
+                    <div class="GOTText">رده</div>
+                </div>
+                <div class="GOVContainer">
+                    <div class="GOValue1">
+                        {{ phone_1["series"]}}
+                        {% if phone_1["series"] > phone_2["series"] %}
+                            <span>&nbsp رده برتر</span>
+                        {% endif %}
+                    </div>
+                    <div class="GOValue2">
+                        {{ phone_2["series"]}}
+                        {% if phone_1["series"] < phone_2["series"] %}
+                            <span>&nbsp رده برتر</span>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            <div class="GORow">
+                <div class="GOKey">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" ><path d="M162.565-140.001q-25.788 0-44.176-18.388t-18.388-44.176v-434.87q0-25.788 18.388-44.176t44.176-18.388h177.436v-77.435q0-25.788 18.388-44.175 18.388-18.388 44.176-18.388h154.87q25.788 0 44.176 18.388 18.388 18.387 18.388 44.175v77.435h177.436q25.788 0 44.176 18.388t18.388 44.176v434.87q0 25.788-18.388 44.176t-44.176 18.388h-634.87Zm0-50.255h634.87q4.616 0 8.462-3.847 3.847-3.846 3.847-8.462v-434.87q0-4.616-3.847-8.462-3.846-3.847-8.462-3.847h-634.87q-4.616 0-8.462 3.847-3.847 3.846-3.847 8.462v434.87q0 4.616 3.847 8.462 3.846 3.847 8.462 3.847Zm227.691-509.743h179.488v-77.435q0-4.615-3.847-8.462-3.846-3.846-8.462-3.846h-154.87q-4.616 0-8.462 3.846-3.847 3.847-3.847 8.462v77.435Zm-240 509.743v-459.488 459.488Z"/></svg>
+                    <div class="GOTText">تاریخ عرضه</div>
+                </div>
+                <div class="GOVContainer">
+                    <div class="GOValue1">
+                        {{ phone_1["releaseDate"]}}
+                        {% if phone_1["releaseDate"] > phone_2["releaseDate"] %}
+                            <span>&nbsp جدید تر </span>
+                        {% endif %}
+                    </div>
+                    <div class="GOValue2">
+                        {{ phone_2["releaseDate"]}}
+                        {% if phone_1["releaseDate"] < phone_2["releaseDate"] %}
+                            <span>&nbsp جدید تر </span>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            <div class="GORow">
+                <div class="GOKey">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M338.974-226.436 480-311.359l141.026 85.923-37.205-160.769 124.128-107.641-163.59-14.487L480-659.769l-64.359 150.436-163.59 14.487 124.128 108.231-37.205 160.179Zm-75.972 104.894 57.307-246.766L128.85-534.23l252.613-21.922L480-788.842l98.537 232.69L831.15-534.23 639.691-368.308l57.307 246.766L480-252.463 263.002-121.542ZM480-432.564Z"/></svg>
+                    <div class="GOTText">امتیاز کاربران</div>
+                </div>
+                <div class="GOVContainer">
+                    <div class="GOValue1">
+                        {{ phone_1["userRating"]}} / ۵
+                        {% if phone_1["userRating"] > phone_2["userRating"] %}
+                            <span>دارای محبوبیت بیشتر</span>
+                        {% endif %}
+                    </div>
+                    <div class="GOValue2">
+                        {{ phone_2["userRating"]}} / ۵
+                        {% if phone_2["userRating"] > phone_1["userRating"] %}
+                            <span>دارای محبوبیت بیشتر</span>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            <div class="GORow">
+                <div class="GOKey">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M247.693-407.693h105.486l205.008-205.385q7.06-7.461 10.59-16.461 3.53-9 3.53-17.692t-3.436-17.41q-3.436-8.718-10.307-15.923l-36.713-37.668q-7.159-6.998-16.043-10.537-8.885-3.538-18.192-3.538-8.692 0-17.487 3.333-8.795 3.333-16.274 10.41L247.693-513.179v105.486Zm276.923-239.538-37-37.385 37 37.385ZM295.384-455.384v-38l119.873-119.463 18.821 18.769 18.385 19.205-119.079 119.489h-38Zm138.694-138.694 18.385 19.205-37.206-37.974 18.821 18.769Zm19.666 186.385h258.563v-50.255H503.999l-50.255 50.255ZM100.001-118.464v-678.971q0-25.788 18.388-44.176t44.176-18.388h634.87q25.788 0 44.176 18.388t18.388 44.176v474.87q0 25.788-18.388 44.176t-44.176 18.388H241.539L100.001-118.464Zm119.795-191.792h577.639q4.616 0 8.462-3.847 3.847-3.846 3.847-8.462v-474.87q0-4.616-3.847-8.462-3.846-3.847-8.462-3.847h-634.87q-4.616 0-8.462 3.847-3.847 3.846-3.847 8.462v559.487l69.54-72.308Zm-69.54 0V-809.744v499.488Z"/></svg>
+                    <div class="GOTText">امتیاز ما</div>
+                </div>
+                <div class="GOVContainer">
+                    <div class="GOValue1">
+                        {{ phone_1["rate"]}} / ۱۰۰
+                        {% if phone_1["rate"] > phone_2["rate"] %}
+                            <span>دارای امتیاز بیشتر</span>
+                        {% endif %}
+                    </div>
+                    <div class="GOValue2">
+                        {{ phone_2["userRating"]}} / ۱۰۰
+                        {% if phone_2["rate"] > phone_1["rate"] %}
+                            <span>دارای امتیاز بیشتر</span>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            <div class="GORow">
+                <div class="GOKey">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M540.256-441.796q-41.923 0-70.961-29.038-29.038-29.038-29.038-70.96 0-41.923 29.038-70.961 29.038-29.038 70.961-29.038 41.922 0 70.96 29.038 29.038 29.038 29.038 70.961 0 41.922-29.038 70.96-29.038 29.038-70.96 29.038Zm-283.333 133.59q-25.608 0-44.086-18.477-18.477-18.477-18.477-44.086v-342.05q0-25.609 18.477-44.086 18.478-18.478 44.086-18.478h566.665q25.609 0 44.086 18.478 18.477 18.477 18.477 44.086v342.05q0 25.609-18.477 44.086-18.477 18.477-44.086 18.477H256.923Zm69.743-50.255h427.18q0-34.128 24.009-58.089 24.01-23.961 58.041-23.961v-202.566q-34.128 0-58.089-24.01-23.961-24.009-23.961-58.041h-427.18q0 34.128-24.01 58.089-24.009 23.962-58.041 23.962v202.566q34.128 0 58.089 24.009 23.962 24.01 23.962 58.041Zm440.255 170.767H136.412q-25.609 0-44.086-18.478-18.477-18.477-18.477-44.086v-405.894h50.255v405.894q0 4.616 3.846 8.462 3.846 3.847 8.462 3.847h630.509v50.255ZM256.923-358.461h-12.308v-366.667h12.308q-5 0-8.654 3.654t-3.654 8.655v342.05q0 5 3.654 8.654t8.654 3.654Z"/></svg>
+                    <div class="GOTText">قیمت</div>
+                </div>
+                <div class="GOVContainer">
+                    <div class="GOValue1">
+                        {{ phone_1["best_price"] }} ریال
+                        {% if phone_1["best_price"] > phone_2["best_price"] %}
+                            <span>دارای امتیاز بیشتر</span>
+                        {% endif %}
+                    </div>
+                    <div class="GOValue2">
+                         {{ phone_2["best_price"] }}ریال
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="detail">
+        <div class="title">مشخصات</div>
+        <div id="DContainer">
+            <div class="DTRow" id="design" onclick="toggleScroll('design');">
+                <div class="DTitle">
+                    <svg class="DTIcon" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="m360.718-501.383 90.59-90.795-78.411-78.617-47.051 47.308-35.384-35.384 47.103-47.051-76.155-75.745-90.795 90.795 190.103 189.489Zm329.359 330.384 90.795-91.206-76.155-76.155-47.052 47.103-35.383-35.384 46.846-47.051-77.565-77.616-90.59 90.59 189.104 189.719Zm10.769-598.745 69.513 69.514-69.513-69.514ZM281.308-140.001H140.001v-141.307l184.718-184.718-224.718-224.846L260.743-852.69l226.513 225.718 177.975-178.181q7.821-7.82 17.077-11.333 9.256-3.513 19.102-3.513 9.589 0 18.845 3.513 9.257 3.513 17.077 11.333l67.821 69.18q7.82 7.821 11.141 17.077 3.32 9.256 3.32 18.845 0 9.846-3.32 18.807-3.321 8.962-11.141 16.782L627.947-486.923 852.69-261.41 691.538-100.412 466.436-325.13 281.308-140.001Zm-91.052-50.255h69.309l393.051-393.257-69.513-69.513-392.847 393.461v69.309Zm427.642-428.103-34.795-34.667 69.513 69.513-34.718-34.846Z"/></svg>
+                    <div class="DTText">
+                        <div class="DTTitle">طراحی و بدنه</div>
+                        <div class="DTPreview"> 
+                            {% if phone_1["rate"] > phone_2["rate"] %}
+                                {{ phone_1["nameFA"] }}  عملکرد بهتری دارد
+                            {% elif phone_1["rate"] < phone_2["rate"] %}
+                                {{ phone_2["nameFA"] }}  عملکرد بهتری دارد
+                            {% else %}
+                                عملکرد برابر دارند
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+                <svg class="moreDB" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M480-345 240-585l47.333-47.333L480-438.999l192.667-192.667L720-584.333 480-345Z"/></svg>
+                <svg class="closeB" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="m251.333-204.667-46.666-46.666L433.334-480 204.667-708.667l46.666-46.666L480-526.666l228.667-228.667 46.666 46.666L526.666-480l228.667 228.667-46.666 46.666L480-433.334 251.333-204.667Z"/></svg>
+            </div>
+            <div class="DInfo">
+                <div class="DIRow">
+                    <div class="DIKey">
+                        اندازه:
+                    </div>
+                    <div class="DIVContainer">
+                        <div class="DIValue1 DIValue">
+                            ۶.۶۷ اینچ
+                        </div>
+                        <div class="DIValue2 DIValue">
+                            ۶.۶۲ اینچ 
+                        </div>
+                    </div>
+                </div>
+                <div class="DIRow">
+                    <div class="DIKey">
+                        اندازه:
+                    </div>
+                    <div class="DIVContainer">
+                        <div class="DIValue1 DIValue">
+                            6.67 اینچ
+                        </div>
+                        <div class="DIValue2 DIValue">
+                            6.62 اینچ 
+                        </div>
+                    </div>
+                </div>
+                <div class="DIRow">
+                    <div class="DIKey">
+                        اندازه:
+                    </div>
+                    <div class="DIVContainer">
+                        <div class="DIValue1 DIValue">
+                            6.67 اینچ
+                        </div>
+                        <div class="DIValue2 DIValue">
+                            6.62 اینچ 
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="DTRow" id="screen" onclick="toggleScroll('screen');">
+                <div class="DTitle">
+                    <svg class="DTIcon" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="m360.718-501.383 90.59-90.795-78.411-78.617-47.051 47.308-35.384-35.384 47.103-47.051-76.155-75.745-90.795 90.795 190.103 189.489Zm329.359 330.384 90.795-91.206-76.155-76.155-47.052 47.103-35.383-35.384 46.846-47.051-77.565-77.616-90.59 90.59 189.104 189.719Zm10.769-598.745 69.513 69.514-69.513-69.514ZM281.308-140.001H140.001v-141.307l184.718-184.718-224.718-224.846L260.743-852.69l226.513 225.718 177.975-178.181q7.821-7.82 17.077-11.333 9.256-3.513 19.102-3.513 9.589 0 18.845 3.513 9.257 3.513 17.077 11.333l67.821 69.18q7.82 7.821 11.141 17.077 3.32 9.256 3.32 18.845 0 9.846-3.32 18.807-3.321 8.962-11.141 16.782L627.947-486.923 852.69-261.41 691.538-100.412 466.436-325.13 281.308-140.001Zm-91.052-50.255h69.309l393.051-393.257-69.513-69.513-392.847 393.461v69.309Zm427.642-428.103-34.795-34.667 69.513 69.513-34.718-34.846Z"/></svg>
+                    <div class="DTText">
+                        <div class="DTTitle">طراحی و بدنه</div>
+                        <div class="DTPreview">سامسونگ اس ۲۳ الترا ۱۲% عملکرد بهتری دارد</div>
+                    </div>
+                </div>
+                <div class="moreDB"><svg xmlns="http://www.w3.org/2000/svg" fill="white" height="40" viewBox="0 -960 960 960" width="40"><path d="M480-345 240-585l47.333-47.333L480-438.999l192.667-192.667L720-584.333 480-345Z"/></svg></div>
+                <div class="closeB"><svg xmlns="http://www.w3.org/2000/svg" fill="white" height="40" viewBox="0 -960 960 960" width="40"><path d="m251.333-204.667-46.666-46.666L433.334-480 204.667-708.667l46.666-46.666L480-526.666l228.667-228.667 46.666 46.666L526.666-480l228.667 228.667-46.666 46.666L480-433.334 251.333-204.667Z"/></svg></div>
+            </div>
+            <div class="DInfo">
+                <div class="DIRow">
+                    <div class="DIKey">
+                        اندازه:
+                    </div>
+                    <div class="DIVContainer">
+                        <div class="DIValue1">
+                            6.67 اینچ
+                        </div>
+                        <div class="DIValue2">
+                            6.62 اینچ 
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="shops">
+        <div class="title">
+            فروشندگان
+        </div>
+        <div id="shopsContainer">
+            <div id="memorySelectContainer">
+                <div id="MSTitle">انتخاب حافضه و رم</div>
+                <div id="memorySelectorContainer">
+                    <select name="memorySelector" class="memorySelector" id="memorySelector1">
+                        <option value="128,8" selected>حافضه ۱۲۸، رم ۸</option>
+                        <option value="128,12">حافضه ۱۲۸، رم ۱۲</option>
+                        <option value="256,12">حافضه ۲۵۶، رم ۱۲</option>
+                        <option value="1024,12">حافضه ۱۰۲۴، رم ۱۲</option>
+                    </select>
+                    <select name="memorySelector" class="memorySelector" id="memorySelector2">
+                        <option value="128,8" selected>حافضه ۱۲۸، رم ۸</option>
+                        <option value="128,12">حافضه ۱۲۸، رم ۱۲</option>
+                        <option value="256,12">حافضه ۲۵۶، رم ۱۲</option>
+                        <option value="1024,12">حافضه ۱۰۲۴، رم ۱۲</option>
+                    </select>
+                </div>
+            </div>
+            <div id="shopContainer">
+                <div class="shop">
+                    <div class="SKey">
+                        <div class="STitle">
+                            <img class="SImage" src="icons/digikala.png">
+                            <div class="SName">دیجیکالا<div class="SLink">digikala.com</div></div>
+                        </div>
+                        
+                    </div>
+                    <div class="SValuesContainer">
+                        <div class="SValue SValue1">
+                            <div class="SPrice">
+                                قیمت ۶۰۰,۰۰۰,۰۰۰ ریال
+                            </div>
+                            <div class="SOptions">
+                                <div class="SAvalability">
+                                    موجود در انبار
+                                </div>
+                                &nbsp &#9675 &nbsp
+                                <div class="SGaranty">
+                                    دارای ۶ ماه گارانتی
+                                </div>
+                            </div>
+                            <div class="SProductLink">ورود به دیجیکالا</div>
+                        </div>
+                        <div class="SValue SValue2">
+                            <div class="SPrice">
+                                قیمت ۷۰۰,۰۰۰,۰۰۰ ریال
+                            </div>
+                            <div class="SOptions">
+                                <div class="SAvalability">
+                                    موجود در انبار
+                                </div>
+                                &nbsp &#9675 &nbsp
+                                <div class="SGaranty">
+                                    دارای ۶ ماه گارانتی
+                                </div>
+                            </div>
+                            <div class="SProductLink">ورود به دیجیکالا</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="shop">
+                    <div class="SKey">
+                        <div class="STitle">
+                            <img class="SImage" src="icons/digikala.png">
+                            <div class="SName">ایرانشاپ</div>
+                        </div>
+                        <div class="SLink">iranshop.com</div>
+                    </div>
+                    <div class="SValuesContainer">
+                        <div class="SValue SValue1">
+                            <div class="SPrice">
+                                قیمت ۶۰۰,۰۰۰,۰۰۰ ریال
+                            </div>
+                            <div class="SOptions">
+                                <div class="SAvalability">
+                                    موجود در انبار
+                                </div>
+                                &nbsp &#9675 &nbsp
+                                <div class="SGaranty">
+                                    دارای ۶ ماه گارانتی
+                                </div>
+                            </div>
+                            <div class="SProductLink">ورود به ایرانشاپ</div>
+                        </div>
+                        <div class="SValue SValue2">
+                            <div class="SPrice">
+                                قیمت ۶۰۰,۰۰۰,۰۰۰ ریال
+                            </div>
+                            <div class="SOptions">
+                                <div class="SAvalability">
+                                    موجود در انبار
+                                </div>
+                                &nbsp &#9675 &nbsp
+                                <div class="SGaranty">
+                                    دارای ۶ ماه گارانتی
+                                </div>
+                            </div>
+                            <div class="SProductLink">ورود به ایرانشاپ</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="footer">
+    تمام حقوق برای تیم مولتیکس محفوظ است &copy;
+</div>
+<script src="{{ url_for('static', filename='js/progressBar.js') }}"></script>
+</body>
+</html>

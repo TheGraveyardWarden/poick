@@ -1,0 +1,253 @@
+{
+  "_id": "SamsungGalaxyS24Ultra",
+  "brand": "Samsung",
+  "nameEN": "Samsung Galaxy S24 Ultra",
+  "nameFA": "سامسونگ گلکسی اس 24 الترا",
+  "pic": "samsungGalaxyS24Ultra.png",
+  "series": "پرچمدار",
+  "releaseDate": "1402-10-27",
+  "tags": [
+    0 : "websiteRecommendedPhone"
+  ],
+  "userRating": 4.9,
+  "details": {
+    "design": {
+      "اندازه": [
+        "طول",
+        162.3,
+        "عرض",
+        79,
+        "قطر",
+        8.6,
+        "میلی متر"
+      ],
+      "وزن": [
+        200,
+        "گرم"
+      ],
+      "مقاومت": true,
+      "جنس بدنه": [
+        "صفحه",
+        "شیشه",
+        "پشت",
+        "شیشه",
+        "قاب",
+        "تیتانیوم"
+      ],
+      "rate": 97
+    },
+    "display": {
+      "رزولوشن": [
+        3120,
+        "در",
+        1440,
+        "پیکسل"
+      ],
+      "نسبت صفحه نمایش": [
+        88.5,
+        "درصد"
+      ],
+      "نرخ بروز رسانی": [
+        120,
+        "هرتز"
+      ],
+      "روشنایی": [
+        2600,
+        "نیت"
+      ],
+      "rate": 98
+    },
+    "camera": {
+      "پشت": [
+        200,
+        50,
+        10,
+        12,
+        "مگاپیکسل"
+      ],
+      "سلفی": [
+        12,
+        "مگاپیکسل"
+      ],
+      "کیفیت فیلم پشت": [
+        "8K",
+        30,
+        "فریم"
+      ],
+      "کیفیت فیلم سلفی": [
+        "4K",
+        60,
+        "فریم"
+      ],
+      "تون قنی": true,
+      "rate": 98
+    },
+    "performance": {
+      "تعداد هسته": 8,
+      "اندروید": 14,
+      "رم": [
+        12,
+        "گیگابایت"
+      ],
+      "حافظه": [
+        256,
+        512,
+        1024,
+        "گیگابایت"
+      ],
+      "rate": 94
+    },
+    "battery": {
+      "حجم باطری": [
+        5000,
+        "میلی امپر"
+      ],
+      "سرعت شارژ": [
+        45,
+        "واتت"
+      ],
+      "شارژ بیسیم": [
+        15,
+        "واتت"
+      ],
+      "rate": 93
+    },
+    "comms": {
+      "شبکه": [
+        5,
+        "جی"
+      ],
+      "درگاه": "تایپ سی",
+      "ان اف سی": true,
+      "اثر انگشت": true,
+      "قطب نما": true,
+      "نسخه بلوتوث": 5.3,
+      "rate": 99
+    },
+    "others": {
+      "درگاه ایوکس": false,
+      "درگاه رم": false,
+      "رنگ ها": [
+        "سیاه",
+        "خاکستری",
+        "بنفش",
+        "زرد",
+        "ابی",
+        "سبز",
+        "نارنجی"
+      ]
+    }
+  },
+  "ramRoms": [
+    {
+      "حافظه": 256,
+      "رم": 12,
+      "shops": [
+        {
+          "name": "digiKala",
+          "price": 800000000,
+          "warranty": 6,
+          "stock": 2
+        },
+        {
+          "brand": "ITMall",
+          "price": 780000000,
+          "warranty": 3,
+          "stock": 4
+        },
+        {
+          "brand": "topRayan",
+          "price": 840000000,
+          "warranty": 12,
+          "stock": 0
+        },
+        {
+          "brand": "ranginShop",
+          "price": 800000000,
+          "warranty": 0,
+          "stock": 20
+        },
+        {
+          "brand": "technoLife",
+          "price": 860000000,
+          "warranty": 24,
+          "stock": 10
+        }
+      ]
+    },
+    {
+      "rom": 512,
+      "ram": 12,
+      "shops": [
+        {
+          "name": "digiKala",
+          "price": 880000000,
+          "warranty": 12,
+          "stock": 8
+        },
+        {
+          "brand": "ITMall",
+          "price": 820000000,
+          "warranty": 8,
+          "stock": 12
+        },
+        {
+          "brand": "topRayan",
+          "price": 840000000,
+          "warranty": 12,
+          "stock": 0
+        },
+        {
+          "brand": "ranginShop",
+          "price": 800000000,
+          "warranty": 0,
+          "stock": 20
+        },
+        {
+          "brand": "technoLife",
+          "price": 860000000,
+          "warranty": 24,
+          "stock": 10
+        }
+      ]
+    },
+    {
+      "rom": 1024,
+      "ram": 12,
+      "shops": [
+        {
+          "name": "digiKala",
+          "price": 920000000,
+          "warranty": 12,
+          "stock": 4
+        },
+        {
+          "brand": "ITMall",
+          "price": 900000000,
+          "warranty": 9,
+          "stock": 6
+        },
+        {
+          "brand": "topRayan",
+          "price": 840000000,
+          "warranty": 12,
+          "stock": 0
+        },
+        {
+          "brand": "ranginShop",
+          "price": 800000000,
+          "warranty": 0,
+          "stock": 20
+        },
+        {
+          "brand": "technoLife",
+          "price": 860000000,
+          "warranty": 24,
+          "stock": 10
+        }
+      ]
+    }
+  ],
+  "views": 0,
+  "rate": 96
+}

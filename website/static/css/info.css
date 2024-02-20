@@ -1,0 +1,339 @@
+/* + bodyContainer */
+#bodyContainer{
+    margin-top: 51px;
+}
+/* - bodyContainer */
+/* + phoneOverview */
+.bannerImage{
+    height: 200px;
+}
+.reviewContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: auto;
+    border-bottom: 1px solid #ffffffe0;
+    background-image: linear-gradient(315deg, #037cde9d,#03e5b87c);
+    padding: 10px var(--containersPadding);
+}
+.priceContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+.dataRight{
+    display: flex;
+    flex-direction: row;
+}
+.reviewInfo{
+    margin: 20px 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.buttons{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.BB:hover{
+    background-color: #00000010;
+    border: 2px solid #ffffffc0;
+    box-shadow: #ffffff40 0 0 20px 2px;
+
+}
+.BB:hover *{
+    color: white;
+    fill: white;
+}
+.BB{
+    font-size: 14pt;
+    border-radius: 10px;
+    background-color: #00000030;
+    border: 2px solid #ffffff50;
+    padding: 2px 7px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.BText{
+    font-size: 14pt;
+}
+.checkBox{
+    height: 20px;
+    width: 20px;
+    border: 2px solid #ffffff3b;
+    border-radius: 5px;
+    margin-left: 4px;
+}
+.colorBox{
+    height: 20px;
+    width: 20px;
+    border: 1px solid #fff;
+    background-color: #535353;
+    border-radius: 5px;
+    margin-left: 4px;
+}
+/* - phoneOverview */
+/* + overallRating */
+.overallRating{
+    display: flex;
+    flex-direction: row;
+    padding: 14px var(--containersPadding);
+    border-bottom: 1px solid #ffffff20;
+}
+.overallBox{
+    background-color: #ffffff16;
+    border:1px solid #ffffff20;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 10px 10px;
+    margin-left: 14px;
+}
+.overallIcon{
+    height: 54px;
+    margin-left: 8px;
+}
+.overallIcon > img{
+    height: 54px;
+}
+.overallInfo > div{
+    font-size: 12pt;
+}
+/* - overallRating */
+/* + details */
+.dataContainer{
+    padding: var(--containersPadding);
+}
+.title{
+    font-size: 24px;
+    font-weight: 600;
+    margin: 7px 10px 10px 0;
+}
+.specContainer{
+    display: flex;
+    flex-direction: column;
+    background-color: var(--layer1);
+    border-radius: 10px;
+    overflow: hidden;
+}
+.S{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #ffffff70;
+    cursor:pointer;
+    padding: 5px 10px;
+}
+.specContainer > div:first-child{
+    border-top: none;
+}
+.dataS{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.textS{
+    align-items: baseline;
+    display: flex;
+    flex-direction: row;
+}
+.dataS > svg{
+    margin-left: 5px;
+}
+.titleS{
+    font-size: 16pt;
+    font-weight: 500;
+    margin-left: 10px;
+}
+.previewS{
+    font-size: 12pt;
+    color: var(--green);
+}
+.moreDB{
+    height: 40px;
+    display: flex;
+    align-items: center;
+}
+.detailContainer{
+    display: none;
+    flex-direction: column;
+    margin: 8px 20px 15px 12px;
+    border-radius: 10px;
+    padding: 2px;
+    background-color: #ffffff0a;
+}
+.DRow{
+    display: flex;
+    flex-direction: row;
+    border-bottom: 1px solid #ffffff22;
+    align-items: baseline;
+    padding: 7px;
+}
+.detailContainer > div:last-child {
+    border-bottom: none;
+}
+.DHeader{
+    font-size: 14pt;
+    margin-left: 5px;
+}
+.DInfo{
+    font-size: 12pt;
+    color: #ffffffcf;
+}
+.closeB{
+    height: 40px;
+    display: none;
+    align-items: center;
+}
+/* - details */
+/* + suggestedButtons */
+.suggestedB{
+    display: flex;
+    flex-direction: row;
+    padding: 10px var(--containersPadding);
+    border-top: 1px solid #ffffff30;
+    border-bottom: 1px solid #ffffff30;
+}
+.SB{
+    border: 1px solid #ffffff40;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 8px 8px 8px 13px;
+    margin-left: 10px;
+    background-color: #ffffff0a;
+    cursor: pointer;
+}
+.SB > svg{
+    height: 40px;
+    width: 40px;
+}
+.SB:hover{
+    border-color: #ffffff80;
+    background-color: #ffffff20;
+}
+.SB:hover *{
+    color: white;
+    fill: white;
+}
+.SB div{
+    font-size: 18pt;
+}
+.SB > svg{
+    margin-left: 5px;
+}
+#SBSearch{
+    width: 100%;
+    margin: 0;
+}
+/* - suggestedButtons */
+/* + shop */
+.memorySelectContainer{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content:space-evenly;
+    border-bottom: 1px solid #ffffff40;
+}
+.MS{
+    cursor: pointer;
+    border-radius: 10px 10px 0 0;
+    padding: 8px 10px 6px 10px;
+    border: 1px solid transparent;
+}
+.MSSelected{
+    border-bottom: 2px solid white;
+    color: white;
+}
+.MS:hover{
+    background-color: var(--layer1);
+    border-top: 1px solid #ffffff30;
+    border-left: 1px solid #ffffff30;
+    border-right: 1px solid #ffffff30;
+    color: white;
+}
+#shops{
+    padding: var(--containersPadding);
+}
+#shopContainer{
+    background-color: var(--layer1);
+    border-radius: 10px;
+    overflow: hidden;
+}
+.shop{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ffffff50;
+    cursor: pointer;
+}
+.shop:last-child{
+    border-bottom: none;
+}
+.shop:hover{
+    background-color: var(--layer1);
+}
+.shop:hover *{
+    color: white;
+}
+.shop:hover .shopPrice{
+    color: var(--green);
+}
+.shop:hover .shopWarranty{
+    color: var(--gold);
+}
+.shop:hover .shopAvalability{
+    color: var(--blue);
+}
+.shopRight{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.shopIcon{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 20px;
+}
+.shopIcon > img{
+    width: 80px;
+    height: 80px;
+}
+.shopLeft{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+.shopLink{
+    display: flex;
+    flex-direction: row;
+    border: 1px solid #ffffff30;
+    border-radius: 10px;
+    align-items: center;
+    padding: 0 7px 0 10px;
+    background-color: var(--layer1);
+    cursor: pointer;
+    transition: background-color 0.1s ease;
+}
+.shopLinkIcon{
+    height: 40px;
+    margin-left: 5px;
+}
+.shopLink:hover{
+    border: 1px solid #00a0ffaa;
+    background-color: #00a0ff60;
+}
+.shopAddress{
+    direction: ltr;
+}
